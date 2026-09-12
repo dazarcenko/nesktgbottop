@@ -14,8 +14,7 @@ from aiogram.utils.keyboard import InlineKeyboardBuilder
 # НАСТРОЙКИ
 # =========================================================
 
-import os
-TOKEN = os.getenv("BOT_TOKEN")
+TOKEN = ""
 ADMIN_ID = 1067205524
 
 bot = Bot(token=TOKEN, session=AiohttpSession())
@@ -29,51 +28,61 @@ router = Router()
 categories = {
     "phones": {
         "name": "🧪 Жижа",
-        "products": {
-            "phone_1": {
-                "name": "PODONKI & BLOOD 60мг лесные ягоды",
-                "price": 15,
-                "description": ""
+        "brands": {
+            "podonki": {
+                "name": "🧪 PODONKI",
+                "products": {
+                    "podonki_1": {
+                        "name": "PODONKI & BLOOD 60мг — лесные ягоды",
+                        "price": 15,
+                        "description": ""
+                    },
+                    "podonki_2": {
+                        "name": "PODONKI & BLOOD 60мг — малиновый лимонад",
+                        "price": 15,
+                        "description": ""
+                    },
+                    "podonki_3": {
+                        "name": "PODONKI & BLOOD 60мг — черника и малина",
+                        "price": 15,
+                        "description": ""
+                    },
+                    "podonki_4": {
+                        "name": "PODONKI & BLOOD 60мг — чёрная смородина",
+                        "price": 15,
+                        "description": ""
+                    },
+                    "podonki_5": {
+                        "name": "PODONKI & BLOOD 60мг — ягодный энергетик",
+                        "price": 15,
+                        "description": ""
+                    },
+                    "podonki_6": {
+                        "name": "PODONKI PODGON 50мг — малина хвоя",
+                        "price": 15,
+                        "description": ""
+                    },
+                    "podonki_7": {
+                        "name": "PODONKI & ALFA VAPE 50мг — дыня",
+                        "price": 15,
+                        "description": ""
+                    }
+                }
             },
-            "phone_2": {
-                "name": "PODONKI & BLOOD 60мг малиновый лимонад",
-                "price": 15,
-                "description": ""
-            },
-            "phone_3": {
-                "name": "PODONKI & BLOOD 60мг черника и малина",
-                "price": 15,
-                "description": ""
-            },
-            "phone_4": {
-                "name": "PODONKI & BLOOD 60мг чёрная смородина",
-                "price": 15,
-                "description": ""
-            },
-            "phone_5": {
-                "name": "PODONKI & BLOOD 60мг ягодный энергетик",
-                "price": 15,
-                "description": ""
-            },
-            "phone_6": {
-                "name": "PODONKI PODGON 50мг малина хвоя",
-                "price": 15,
-                "description": ""
-            },
-            "phone_7": {
-                "name": "PODONKI & ALFA VAPE 50мг дыня",
-                "price": 15,
-                "description": ""
-            },
-            "phone_8": {
-                "name": "R&M BAD DRIP 50мг клубника земляника",
-                "price": 16,
-                "description": ""
-            },
-            "phone_9": {
-                "name": "R&M BAD DRIP 50мг садовые ягоды",
-                "price": 16,
-                "description": ""
+            "rick_and_morty": {
+                "name": "🧪 RICK & MORTY",
+                "products": {
+                    "rm_1": {
+                        "name": "R&M BAD DRIP 50мг — клубника земляника",
+                        "price": 16,
+                        "description": ""
+                    },
+                    "rm_2": {
+                        "name": "R&M BAD DRIP 50мг — садовые ягоды",
+                        "price": 16,
+                        "description": ""
+                    }
+                }
             }
         }
     },
@@ -222,11 +231,22 @@ async def category_selected(callback: CallbackQuery):
 
     keyboard = InlineKeyboardBuilder()
 
-    for product_id, product in category["products"].items():
-        keyboard.button(
-            text=f"{product['name']} {product['price']}Р",
-            callback_data=f"product:{category_id}:{product_id}"
-        )
+    # Для жижи сначала показываем бренды,
+    # а уже после выбора бренда — вкусы.
+    if "brands" in category:
+        for brand_id, brand in category["brands"].items():
+            keyboard.button(
+                text=brand["name"],
+                callback_data=f"brand:{category_id}:{brand_id}"
+            )
+
+    # Для обычных категорий оставляем старое поведение.
+    elif "products" in category:
+        for product_id, product in category["products"].items():
+            keyboard.button(
+                text=f"{product['name']} {product['price']}Р",
+                callback_data=f"product:{category_id}:{product_id}"
+            )
 
     keyboard.button(
         text="Назад",
@@ -237,7 +257,65 @@ async def category_selected(callback: CallbackQuery):
 
     await callback.message.edit_text(
         f"{category['name']}\n\n"
-        "Выбери товар:",
+        + ("Выбери производителя:" if "brands" in category else "Выбери товар:"),
+        reply_markup=keyboard.as_markup()
+    )
+
+    await callback.answer()
+
+
+# =========================================================
+# БРЕНД ЖИЖИ — ВЫБОР ВКУСА
+# =========================================================
+
+@router.callback_query(F.data.startswith("brand:"))
+async def brand_selected(callback: CallbackQuery):
+    _, category_id, brand_id = callback.data.split(":")
+
+    category = categories.get(category_id)
+
+    if not category or "brands" not in category:
+        await callback.answer(
+            "Категория не найдена",
+            show_alert=True
+        )
+        return
+
+    brand = category["brands"].get(brand_id)
+
+    if not brand:
+        await callback.answer(
+            "Производитель не найден",
+            show_alert=True
+        )
+        return
+
+    keyboard = InlineKeyboardBuilder()
+
+    for product_id, product in brand["products"].items():
+        # На этой странице показываем именно вкус,
+        # без повторения названия бренда.
+        product_name = product["name"]
+        if "—" in product_name:
+            flavor = product_name.split("—", 1)[1].strip()
+        else:
+            flavor = product_name
+
+        keyboard.button(
+            text=f"{flavor} — {product['price']}Р",
+            callback_data=f"product:{category_id}:{brand_id}:{product_id}"
+        )
+
+    keyboard.button(
+        text="Назад",
+        callback_data=f"category:{category_id}"
+    )
+
+    keyboard.adjust(1)
+
+    await callback.message.edit_text(
+        f"{brand['name']}\n\n"
+        "Выбери вкус:",
         reply_markup=keyboard.as_markup()
     )
 
@@ -250,7 +328,13 @@ async def category_selected(callback: CallbackQuery):
 
 @router.callback_query(F.data.startswith("product:"))
 async def product_selected(callback: CallbackQuery):
-    _, category_id, product_id = callback.data.split(":")
+    parts = callback.data.split(":")
+
+    if len(parts) == 4:
+        _, category_id, brand_id, product_id = parts
+    else:
+        _, category_id, product_id = parts
+        brand_id = None
 
     category = categories.get(category_id)
 
@@ -261,7 +345,17 @@ async def product_selected(callback: CallbackQuery):
         )
         return
 
-    product = category["products"].get(product_id)
+    if brand_id:
+        brand = category.get("brands", {}).get(brand_id)
+        if not brand:
+            await callback.answer(
+                "Производитель не найден",
+                show_alert=True
+            )
+            return
+        product = brand["products"].get(product_id)
+    else:
+        product = category.get("products", {}).get(product_id)
 
     if not product:
         await callback.answer(
@@ -279,7 +373,11 @@ async def product_selected(callback: CallbackQuery):
 
     keyboard.button(
         text="Назад",
-        callback_data=f"category:{category_id}"
+        callback_data=(
+            f"brand:{category_id}:{brand_id}"
+            if brand_id
+            else f"category:{category_id}"
+        )
     )
 
     keyboard.adjust(1)
@@ -582,7 +680,7 @@ async def address_received(
         "Всё верно?",
         reply_markup=keyboard.as_markup()
     )
-print("ADMIN_ID:", ADMIN_ID)
+
 
 # =========================================================
 # ПОДТВЕРЖДЕНИЕ ЗАКАЗА
