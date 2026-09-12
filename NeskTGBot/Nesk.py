@@ -768,10 +768,10 @@ async def confirm_order(
 
     chat_keyboard = InlineKeyboardBuilder()
 
-chat_keyboard.button(
-    text="💬 Написать покупателю",
-    callback_data=f"chat:{user.id}"
-)
+    chat_keyboard.button(
+        text="💬 Написать покупателю",
+        callback_data=f"chat:{user.id}"
+    )
 
     await bot.send_message(
         ADMIN_ID,
