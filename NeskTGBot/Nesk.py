@@ -99,12 +99,17 @@ categories = {
                 "name": "🟩 VAPORESSO",
         "products": {
             "headphones_1": {
-                "name": "XROS 5 NANO orange leatherette",
+                "name": "XROS 5 NANO Orange leatherette",
                 "price": 95,
                 "description": ""
-            },
+                }
+            }
+        }
+    }
+},
+            
             "headphones_2": {
-                "name": "XROS 6 MINI titanium black",
+                "name": "XROS 6 MINI Titanium black",
                 "price": 60,
                 "description": ""
             }
