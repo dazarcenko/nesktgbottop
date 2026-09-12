@@ -1,5 +1,5 @@
 import asyncio
-import os
+
 from aiogram import Bot, F
 from aiogram.client.session.aiohttp import AiohttpSession
 from aiogram.dispatcher.router import Router
@@ -14,7 +14,7 @@ from aiogram.utils.keyboard import InlineKeyboardBuilder
 # НАСТРОЙКИ
 # =========================================================
 
-TOKEN = os.getenv("TOKEN")
+TOKEN = ""
 ADMIN_ID = 1067205524
 
 bot = Bot(token=TOKEN, session=AiohttpSession())
@@ -368,7 +368,11 @@ async def product_selected(callback: CallbackQuery):
 
     keyboard.button(
         text="Выбрать",
-        callback_data=f"select:{category_id}:{product_id}"
+        callback_data=(
+            f"select:{category_id}:{brand_id}:{product_id}"
+            if brand_id
+            else f"select:{category_id}:{product_id}"
+        )
     )
 
     keyboard.button(
@@ -401,7 +405,13 @@ async def select_product(
     callback: CallbackQuery,
     state: FSMContext
 ):
-    _, category_id, product_id = callback.data.split(":")
+    parts = callback.data.split(":")
+
+    if len(parts) == 4:
+        _, category_id, brand_id, product_id = parts
+    else:
+        _, category_id, product_id = parts
+        brand_id = None
 
     category = categories.get(category_id)
 
@@ -412,7 +422,17 @@ async def select_product(
         )
         return
 
-    product = category["products"].get(product_id)
+    if brand_id:
+        brand = category.get("brands", {}).get(brand_id)
+        if not brand:
+            await callback.answer(
+                "Производитель не найден",
+                show_alert=True
+            )
+            return
+        product = brand["products"].get(product_id)
+    else:
+        product = category.get("products", {}).get(product_id)
 
     if not product:
         await callback.answer(
@@ -423,6 +443,7 @@ async def select_product(
 
     await state.update_data(
         category_id=category_id,
+        brand_id=brand_id,
         product_id=product_id
     )
 
@@ -538,6 +559,17 @@ async def pickup_selected(
 # ВЫБРАЛИ ТОЧКУ САМОВЫВОЗА
 # =========================================================
 
+def get_product_from_state(data):
+    category = categories[data["category_id"]]
+    brand_id = data.get("brand_id")
+
+    if brand_id:
+        brand = category["brands"][brand_id]
+        return brand["products"][data["product_id"]]
+
+    return category["products"][data["product_id"]]
+
+
 @router.callback_query(
     OrderState.choosing_delivery,
     F.data.startswith("pickup_place:")
@@ -565,8 +597,7 @@ async def pickup_place_selected(
 
     data = await state.get_data()
 
-    category = categories[data["category_id"]]
-    product = category["products"][data["product_id"]]
+    product = get_product_from_state(data)
 
     total_price = product["price"]
 
@@ -649,8 +680,7 @@ async def address_received(
 
     data = await state.get_data()
 
-    category = categories[data["category_id"]]
-    product = category["products"][data["product_id"]]
+    product = get_product_from_state(data)
 
     delivery_price = 3
     total_price = product["price"] + delivery_price
@@ -700,8 +730,7 @@ async def confirm_order(
         )
         return
 
-    category = categories[data["category_id"]]
-    product = category["products"][data["product_id"]]
+    product = get_product_from_state(data)
 
     delivery_price = data.get("delivery_price", 0)
     total_price = product["price"] + delivery_price
