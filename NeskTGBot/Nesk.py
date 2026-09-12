@@ -38,37 +38,37 @@ categories = {
                 "name": "🧪 PODONKI",
                 "products": {
                     "podonki_1": {
-                        "name": "PODONKI & BLOOD 60мг — лесные ягоды",
+                        "name": "PODONKI & BLOOD 60мг — Лесные ягоды",
                         "price": 15,
                         "description": ""
                     },
                     "podonki_2": {
-                        "name": "PODONKI & BLOOD 60мг — малиновый лимонад",
+                        "name": "PODONKI & BLOOD 60мг — Малиновый лимонад",
                         "price": 15,
                         "description": ""
                     },
                     "podonki_3": {
-                        "name": "PODONKI & BLOOD 60мг — черника и малина",
+                        "name": "PODONKI & BLOOD 60мг — Черника и малина",
                         "price": 15,
                         "description": ""
                     },
                     "podonki_4": {
-                        "name": "PODONKI & BLOOD 60мг — чёрная смородина",
+                        "name": "PODONKI & BLOOD 60мг — Чёрная смородина",
                         "price": 15,
                         "description": ""
                     },
                     "podonki_5": {
-                        "name": "PODONKI & BLOOD 60мг — ягодный энергетик",
+                        "name": "PODONKI & BLOOD 60мг — Ягодный энергетик",
                         "price": 15,
                         "description": ""
                     },
                     "podonki_6": {
-                        "name": "PODONKI PODGON 50мг — малина хвоя",
+                        "name": "PODONKI PODGON 50мг — Малина хвоя",
                         "price": 15,
                         "description": ""
                     },
                     "podonki_7": {
-                        "name": "PODONKI & ALFA VAPE 50мг — дыня",
+                        "name": "PODONKI & ALFA VAPE 50мг — Дыня",
                         "price": 15,
                         "description": ""
                     }
@@ -78,12 +78,12 @@ categories = {
                 "name": "🧪 RICK & MORTY",
                 "products": {
                     "rm_1": {
-                        "name": "R&M BAD DRIP 50мг — клубника земляника",
+                        "name": "R&M BAD TRIP 50мг — Клубника земляника",
                         "price": 16,
                         "description": ""
                     },
                     "rm_2": {
-                        "name": "R&M BAD DRIP 50мг — садовые ягоды",
+                        "name": "R&M BAD TRIP 50мг — Садовые ягоды",
                         "price": 16,
                         "description": ""
                     }
@@ -94,14 +94,17 @@ categories = {
 
     "headphones": {
         "name": "⚡ Под-Системы",
+         "brands": {
+            "VAPORESSO": {
+                "name": "🟩 VAPORESSO",
         "products": {
             "headphones_1": {
-                "name": "VAPORESSO XROS 5 NANO orange leatherette",
+                "name": "XROS 5 NANO orange leatherette",
                 "price": 95,
                 "description": ""
             },
             "headphones_2": {
-                "name": "VAPORESSO XROS 6 MINI titanium black",
+                "name": "XROS 6 MINI titanium black",
                 "price": 60,
                 "description": ""
             }
