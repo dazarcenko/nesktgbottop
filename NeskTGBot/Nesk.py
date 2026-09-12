@@ -1,5 +1,5 @@
 import asyncio
-
+import os
 from aiogram import Bot, F
 from aiogram.client.session.aiohttp import AiohttpSession
 from aiogram.dispatcher.router import Router
@@ -14,7 +14,12 @@ from aiogram.utils.keyboard import InlineKeyboardBuilder
 # НАСТРОЙКИ
 # =========================================================
 
-TOKEN = ""
+
+
+TOKEN = os.environ.get("TOKEN", "").strip()
+
+if not TOKEN:
+    raise RuntimeError("TOKEN не найден в Variables")
 ADMIN_ID = 1067205524
 
 bot = Bot(token=TOKEN, session=AiohttpSession())
