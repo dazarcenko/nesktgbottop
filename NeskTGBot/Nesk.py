@@ -24,7 +24,7 @@ ADMIN_ID = 1067205524
 
 bot = Bot(token=TOKEN, session=AiohttpSession())
 router = Router()
-
+active_chats = {}
 
 # =========================================================
 # ТОВАРЫ
@@ -104,7 +104,7 @@ categories = {
                         "description": ""
                     },
                     "headphones_2": {
-                        "name": "VAPORESSO XROS 6 MINI Titanium black",
+                        "name": "XROS 6 MINI Titanium black",
                         "price": 60,
                         "description": ""
                     }
@@ -766,10 +766,18 @@ async def confirm_order(
         f"Место/адрес: {address}"
     )
 
-    await bot.send_message(
-        ADMIN_ID,
-        admin_message
-    )
+    chat_keyboard = InlineKeyboardBuilder()
+
+chat_keyboard.button(
+    text="💬 Написать покупателю",
+    callback_data=f"chat:{user.id}"
+)
+
+await bot.send_message(
+    ADMIN_ID,
+    admin_message,
+    reply_markup=chat_keyboard.as_markup()
+)
 
     await state.clear()
 
@@ -784,7 +792,115 @@ async def confirm_order(
 
     await callback.answer()
 
+# =========================================================
+# ЧАТ АДМИНА С ПОКУПАТЕЛЕМ
+# =========================================================
 
+@router.callback_query(F.data.startswith("chat:"))
+async def start_admin_chat(callback: CallbackQuery):
+    if callback.from_user.id != ADMIN_ID:
+        await callback.answer(
+            "Нет доступа",
+            show_alert=True
+        )
+        return
+
+    user_id = int(callback.data.split(":", 1)[1])
+
+    active_chats[ADMIN_ID] = user_id
+
+    keyboard = InlineKeyboardBuilder()
+
+    keyboard.button(
+        text="❌ Завершить диалог",
+        callback_data="chat_stop"
+    )
+
+    await callback.message.answer(
+        f"💬 Чат с покупателем {user_id} активирован.\n\n"
+        "Пиши сюда сообщения — они будут отправляться покупателю.\n"
+        "Ответы покупателя будут приходить сюда.\n\n"
+        "Когда закончишь, нажми «❌ Завершить диалог».",
+        reply_markup=keyboard.as_markup()
+    )
+
+    await callback.answer("Чат открыт")
+
+
+@router.callback_query(F.data == "chat_stop")
+async def stop_admin_chat(callback: CallbackQuery):
+    if callback.from_user.id != ADMIN_ID:
+        await callback.answer(
+            "Нет доступа",
+            show_alert=True
+        )
+        return
+
+    active_chats.pop(ADMIN_ID, None)
+
+    await callback.message.edit_text(
+        "❌ Диалог завершён."
+    )
+
+    await callback.answer("Чат завершён")
+
+
+# =========================================================
+# АДМИН → ПОКУПАТЕЛЬ
+# =========================================================
+
+@router.message(F.from_user.id == ADMIN_ID, F.text)
+async def admin_message_to_customer(message: Message):
+    user_id = active_chats.get(ADMIN_ID)
+
+    if not user_id:
+        return
+
+    try:
+        await bot.send_message(
+            user_id,
+            "💬 Сообщение от администратора:\n\n"
+            f"{message.text}"
+        )
+
+        await message.answer(
+            "✅ Сообщение отправлено."
+        )
+
+    except Exception:
+        await message.answer(
+            "❌ Не удалось отправить сообщение.\n"
+            "Возможно, покупатель заблокировал бота."
+        )
+
+
+# =========================================================
+# ПОКУПАТЕЛЬ → АДМИН
+# =========================================================
+
+@router.message(F.from_user.id != ADMIN_ID, F.text)
+async def customer_message_to_admin(message: Message):
+    user_id = active_chats.get(ADMIN_ID)
+
+    if user_id != message.from_user.id:
+        return
+
+    user = message.from_user
+
+    username = (
+        f"@{user.username}"
+        if user.username
+        else "нет username"
+    )
+
+    await bot.send_message(
+        ADMIN_ID,
+        "💬 Сообщение от покупателя\n\n"
+        f"Имя: {user.full_name}\n"
+        f"Username: {username}\n"
+        f"ID: {user.id}\n\n"
+        f"{message.text}"
+    )
 # =========================================================
 # ОТМЕНА
 # =========================================================
