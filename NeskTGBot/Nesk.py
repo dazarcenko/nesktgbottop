@@ -582,7 +582,7 @@ async def address_received(
         "Всё верно?",
         reply_markup=keyboard.as_markup()
     )
-
+print("ADMIN_ID:", ADMIN_ID)
 
 # =========================================================
 # ПОДТВЕРЖДЕНИЕ ЗАКАЗА
