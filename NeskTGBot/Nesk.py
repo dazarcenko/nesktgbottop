@@ -773,11 +773,11 @@ chat_keyboard.button(
     callback_data=f"chat:{user.id}"
 )
 
-await bot.send_message(
-    ADMIN_ID,
-    admin_message,
-    reply_markup=chat_keyboard.as_markup()
-)
+    await bot.send_message(
+        ADMIN_ID,
+        admin_message,
+        reply_markup=chat_keyboard.as_markup()
+    )
 
     await state.clear()
 
@@ -791,7 +791,6 @@ await bot.send_message(
     )
 
     await callback.answer()
-
 # =========================================================
 # ЧАТ АДМИНА С ПОКУПАТЕЛЕМ
 # =========================================================
