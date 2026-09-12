@@ -92,30 +92,26 @@ categories = {
         }
     },
 
-    "headphones": {
+ "headphones": {
         "name": "⚡ Под-Системы",
-         "brands": {
+        "brands": {
             "VAPORESSO": {
                 "name": "🟩 VAPORESSO",
-        "products": {
-            "headphones_1": {
-                "name": "XROS 5 NANO Orange leatherette",
-                "price": 95,
-                "description": ""
+                "products": {
+                    "headphones_1": {
+                        "name": "XROS 5 NANO Orange leatherette",
+                        "price": 95,
+                        "description": ""
+                    },
+                    "headphones_2": {
+                        "name": "VAPORESSO XROS 6 MINI Titanium black",
+                        "price": 60,
+                        "description": ""
+                    }
                 }
             }
         }
-    }
-},
-            
-            "headphones_2": {
-                "name": "XROS 6 MINI Titanium black",
-                "price": 60,
-                "description": ""
-            }
-        }
     },
-
     "other": {
         "name": "📦 Другое",
         "products": {
