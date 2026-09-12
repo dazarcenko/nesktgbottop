@@ -14,7 +14,8 @@ from aiogram.utils.keyboard import InlineKeyboardBuilder
 # НАСТРОЙКИ
 # =========================================================
 
-TOKEN = ""
+import os
+TOKEN = os.getenv("BOT_TOKEN")
 ADMIN_ID = 1044141986
 
 bot = Bot(token=TOKEN, session=AiohttpSession())
