@@ -102,11 +102,6 @@ categories = {
                         "name": "XROS 5 NANO Orange leatherette",
                         "price": 95,
                         "description": ""
-                    },
-                    "headphones_2": {
-                        "name": "XROS 6 MINI Titanium black",
-                        "price": 60,
-                        "description": ""
                     }
                 }
             }
