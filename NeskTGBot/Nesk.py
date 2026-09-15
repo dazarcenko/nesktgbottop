@@ -1,6 +1,7 @@
 import asyncio
 import os
-from aiogram import Bot, F
+
+from aiogram import Bot, F, Dispatcher
 from aiogram.client.session.aiohttp import AiohttpSession
 from aiogram.dispatcher.router import Router
 from aiogram.filters import CommandStart
@@ -14,43 +15,66 @@ from aiogram.utils.keyboard import InlineKeyboardBuilder
 # НАСТРОЙКИ
 # =========================================================
 
-
-
 TOKEN = os.environ.get("TOKEN", "").strip()
 
 if not TOKEN:
     raise RuntimeError("TOKEN не найден в Variables")
+
 ADMIN_ID = 1067205524
 
-bot = Bot(token=TOKEN, session=AiohttpSession())
+bot = Bot(
+    token=TOKEN,
+    session=AiohttpSession()
+)
+
 router = Router()
+
+# Активные чаты:
+# ADMIN_ID -> user_id
 active_chats = {}
+
 
 # =========================================================
 # ТОВАРЫ
 # =========================================================
 
 categories = {
+
+    # =====================================================
+    # ЖИЖА
+    # =====================================================
+
     "phones": {
         "name": "🧪 Жижа",
+
         "brands": {
+
+            # -------------------------------------------------
+            # PODONKI
+            # -------------------------------------------------
+
             "podonki": {
                 "name": "🧪 PODONKI",
+
                 "products": {
+
                     "podonki_1": {
                         "name": "PODONKI & BLOOD 60мг — Лесные ягоды",
                         "price": 15,
                         "description": ""
                     },
+
                     "podonki_2": {
                         "name": "PODONKI & BLOOD 60мг — Малиновый лимонад",
                         "price": 15,
                         "description": ""
                     },
+
                     "podonki_3": {
                         "name": "PODONKI & BLOOD 60мг — Чёрная смородина",
                         "price": 15,
                         "description": ""
+                    },
 
                     "podonki_4": {
                         "name": "PODONKI & ALFA VAPE 50мг — Дыня",
@@ -59,14 +83,22 @@ categories = {
                     }
                 }
             },
+
+            # -------------------------------------------------
+            # RICK & MORTY
+            # -------------------------------------------------
+
             "rick_and_morty": {
                 "name": "🧪 RICK & MORTY",
+
                 "products": {
+
                     "rm_1": {
                         "name": "R&M BAD TRIP 50мг — Клубника земляника",
                         "price": 16,
                         "description": ""
                     },
+
                     "rm_2": {
                         "name": "R&M BAD TRIP 50мг — Садовые ягоды",
                         "price": 16,
@@ -77,12 +109,21 @@ categories = {
         }
     },
 
- "headphones": {
+
+    # =====================================================
+    # ПОД-СИСТЕМЫ
+    # =====================================================
+
+    "headphones": {
         "name": "⚡ Под-Системы",
+
         "brands": {
+
             "VAPORESSO": {
                 "name": "🟩 VAPORESSO",
+
                 "products": {
+
                     "headphones_1": {
                         "name": "XROS 5 NANO Orange leatherette",
                         "price": 95,
@@ -92,9 +133,17 @@ categories = {
             }
         }
     },
+
+
+    # =====================================================
+    # ДРУГОЕ
+    # =====================================================
+
     "other": {
         "name": "📦 Другое",
+
         "products": {
+
             "other_1": {
                 "name": "тут пока ничего нет...",
                 "price": 0,
@@ -137,22 +186,28 @@ pickup_places = [
 # =========================================================
 
 class OrderState(StatesGroup):
+
     choosing_time = State()
+
     choosing_delivery = State()
+
     entering_address = State()
 
 
 # =========================================================
-# КЛАВИАТУРА ГЛАВНОГО МЕНЮ
+# ГЛАВНАЯ КЛАВИАТУРА
 # =========================================================
 
 def main_keyboard():
+
     keyboard = InlineKeyboardBuilder()
 
     keyboard.button(
         text="🛒 Заказать",
         callback_data="catalog"
     )
+
+    keyboard.adjust(1)
 
     return keyboard.as_markup()
 
@@ -162,7 +217,11 @@ def main_keyboard():
 # =========================================================
 
 @router.message(CommandStart())
-async def start(message: Message, state: FSMContext):
+async def start(
+    message: Message,
+    state: FSMContext
+):
+
     await state.clear()
 
     await message.answer(
@@ -177,10 +236,14 @@ async def start(message: Message, state: FSMContext):
 # =========================================================
 
 @router.callback_query(F.data == "catalog")
-async def catalog(callback: CallbackQuery):
+async def catalog(
+    callback: CallbackQuery
+):
+
     keyboard = InlineKeyboardBuilder()
 
     for category_id, category in categories.items():
+
         keyboard.button(
             text=category["name"],
             callback_data=f"category:{category_id}"
@@ -202,38 +265,52 @@ async def catalog(callback: CallbackQuery):
 
 
 # =========================================================
-# КАТЕГОРИЯ — ТОВАРЫ
+# КАТЕГОРИЯ
 # =========================================================
 
 @router.callback_query(F.data.startswith("category:"))
-async def category_selected(callback: CallbackQuery):
-    category_id = callback.data.split(":")[1]
+async def category_selected(
+    callback: CallbackQuery
+):
+
+    category_id = callback.data.split(":", 1)[1]
 
     category = categories.get(category_id)
 
     if not category:
+
         await callback.answer(
             "Категория не найдена",
             show_alert=True
         )
+
         return
 
     keyboard = InlineKeyboardBuilder()
 
-    # Для жижи сначала показываем бренды,
-    # а уже после выбора бренда — вкусы.
+    # -----------------------------------------------------
+    # ЕСЛИ ЕСТЬ БРЕНДЫ
+    # -----------------------------------------------------
+
     if "brands" in category:
+
         for brand_id, brand in category["brands"].items():
+
             keyboard.button(
                 text=brand["name"],
                 callback_data=f"brand:{category_id}:{brand_id}"
             )
 
-    # Для обычных категорий оставляем старое поведение.
+    # -----------------------------------------------------
+    # ЕСЛИ БРЕНДОВ НЕТ
+    # -----------------------------------------------------
+
     elif "products" in category:
+
         for product_id, product in category["products"].items():
+
             keyboard.button(
-                text=f"{product['name']} {product['price']}Р",
+                text=f"{product['name']} — {product['price']}Р",
                 callback_data=f"product:{category_id}:{product_id}"
             )
 
@@ -244,9 +321,22 @@ async def category_selected(callback: CallbackQuery):
 
     keyboard.adjust(1)
 
+    if "brands" in category:
+
+        text = (
+            f"{category['name']}\n\n"
+            "Выбери производителя:"
+        )
+
+    else:
+
+        text = (
+            f"{category['name']}\n\n"
+            "Выбери товар:"
+        )
+
     await callback.message.edit_text(
-        f"{category['name']}\n\n"
-        + ("Выбери производителя:" if "brands" in category else "Выбери товар:"),
+        text,
         reply_markup=keyboard.as_markup()
     )
 
@@ -254,45 +344,66 @@ async def category_selected(callback: CallbackQuery):
 
 
 # =========================================================
-# БРЕНД ЖИЖИ — ВЫБОР ВКУСА
+# БРЕНД
 # =========================================================
 
 @router.callback_query(F.data.startswith("brand:"))
-async def brand_selected(callback: CallbackQuery):
+async def brand_selected(
+    callback: CallbackQuery
+):
+
     _, category_id, brand_id = callback.data.split(":")
 
     category = categories.get(category_id)
 
-    if not category or "brands" not in category:
+    if not category:
+
         await callback.answer(
             "Категория не найдена",
             show_alert=True
         )
+
         return
 
-    brand = category["brands"].get(brand_id)
+    brand = category.get(
+        "brands",
+        {}
+    ).get(brand_id)
 
     if not brand:
+
         await callback.answer(
             "Производитель не найден",
             show_alert=True
         )
+
         return
 
     keyboard = InlineKeyboardBuilder()
 
     for product_id, product in brand["products"].items():
-        # На этой странице показываем именно вкус,
-        # без повторения названия бренда.
+
         product_name = product["name"]
+
         if "—" in product_name:
-            flavor = product_name.split("—", 1)[1].strip()
+
+            flavor = product_name.split(
+                "—",
+                1
+            )[1].strip()
+
         else:
+
             flavor = product_name
 
         keyboard.button(
             text=f"{flavor} — {product['price']}Р",
-            callback_data=f"product:{category_id}:{brand_id}:{product_id}"
+            callback_data=(
+                f"product:"
+                f"{category_id}:"
+                f"{brand_id}:"
+                f"{product_id}"
+            )
         )
 
     keyboard.button(
@@ -312,73 +423,128 @@ async def brand_selected(callback: CallbackQuery):
 
 
 # =========================================================
-# ТОВАР — КАРТОЧКА
+# ПОЛУЧЕНИЕ ТОВАРА
 # =========================================================
 
-@router.callback_query(F.data.startswith("product:"))
-async def product_selected(callback: CallbackQuery):
-    parts = callback.data.split(":")
-
-    if len(parts) == 4:
-        _, category_id, brand_id, product_id = parts
-    else:
-        _, category_id, product_id = parts
-        brand_id = None
+def get_product(
+    category_id,
+    product_id,
+    brand_id=None
+):
 
     category = categories.get(category_id)
 
     if not category:
-        await callback.answer(
-            "Категория не найдена",
-            show_alert=True
-        )
-        return
+        return None
 
     if brand_id:
-        brand = category.get("brands", {}).get(brand_id)
+
+        brand = category.get(
+            "brands",
+            {}
+        ).get(brand_id)
+
         if not brand:
-            await callback.answer(
-                "Производитель не найден",
-                show_alert=True
-            )
-            return
-        product = brand["products"].get(product_id)
+            return None
+
+        return brand.get(
+            "products",
+            {}
+        ).get(product_id)
+
+    return category.get(
+        "products",
+        {}
+    ).get(product_id)
+
+
+# =========================================================
+# ТОВАР — КАРТОЧКА
+# =========================================================
+
+@router.callback_query(F.data.startswith("product:"))
+async def product_selected(
+    callback: CallbackQuery
+):
+
+    parts = callback.data.split(":")
+
+    if len(parts) == 4:
+
+        _, category_id, brand_id, product_id = parts
+
     else:
-        product = category.get("products", {}).get(product_id)
+
+        _, category_id, product_id = parts
+
+        brand_id = None
+
+    product = get_product(
+        category_id,
+        product_id,
+        brand_id
+    )
 
     if not product:
+
         await callback.answer(
             "Товар не найден",
             show_alert=True
         )
+
         return
 
     keyboard = InlineKeyboardBuilder()
 
+    if brand_id:
+
+        select_callback = (
+            f"select:"
+            f"{category_id}:"
+            f"{brand_id}:"
+            f"{product_id}"
+        )
+
+        back_callback = (
+            f"brand:"
+            f"{category_id}:"
+            f"{brand_id}"
+        )
+
+    else:
+
+        select_callback = (
+            f"select:"
+            f"{category_id}:"
+            f"{product_id}"
+        )
+
+        back_callback = (
+            f"category:"
+            f"{category_id}"
+        )
+
     keyboard.button(
         text="Выбрать",
-        callback_data=(
-            f"select:{category_id}:{brand_id}:{product_id}"
-            if brand_id
-            else f"select:{category_id}:{product_id}"
-        )
+        callback_data=select_callback
     )
 
     keyboard.button(
         text="Назад",
-        callback_data=(
-            f"brand:{category_id}:{brand_id}"
-            if brand_id
-            else f"category:{category_id}"
-        )
+        callback_data=back_callback
     )
 
     keyboard.adjust(1)
 
+    description = product.get(
+        "description",
+        ""
+    )
+
     await callback.message.edit_text(
         f"{product['name']}\n\n"
         f"Цена: {product['price']}Р\n\n"
-        f"{product['description']}",
+        f"{description}",
         reply_markup=keyboard.as_markup()
     )
 
@@ -386,7 +552,7 @@ async def product_selected(callback: CallbackQuery):
 
 
 # =========================================================
-# ВЫБРАЛИ ТОВАР — ВЫБОР ВРЕМЕНИ
+# ВЫБОР ТОВАРА
 # =========================================================
 
 @router.callback_query(F.data.startswith("select:"))
@@ -394,40 +560,32 @@ async def select_product(
     callback: CallbackQuery,
     state: FSMContext
 ):
+
     parts = callback.data.split(":")
 
     if len(parts) == 4:
+
         _, category_id, brand_id, product_id = parts
+
     else:
+
         _, category_id, product_id = parts
+
         brand_id = None
 
-    category = categories.get(category_id)
-
-    if not category:
-        await callback.answer(
-            "Категория не найдена",
-            show_alert=True
-        )
-        return
-
-    if brand_id:
-        brand = category.get("brands", {}).get(brand_id)
-        if not brand:
-            await callback.answer(
-                "Производитель не найден",
-                show_alert=True
-            )
-            return
-        product = brand["products"].get(product_id)
-    else:
-        product = category.get("products", {}).get(product_id)
+    product = get_product(
+        category_id,
+        product_id,
+        brand_id
+    )
 
     if not product:
+
         await callback.answer(
             "Товар не найден",
             show_alert=True
         )
+
         return
 
     await state.update_data(
@@ -436,11 +594,14 @@ async def select_product(
         product_id=product_id
     )
 
-    await state.set_state(OrderState.choosing_time)
+    await state.set_state(
+        OrderState.choosing_time
+    )
 
     keyboard = InlineKeyboardBuilder()
 
     for time in times:
+
         keyboard.button(
             text=time,
             callback_data=f"time:{time}"
@@ -464,7 +625,7 @@ async def select_product(
 
 
 # =========================================================
-# ВЫБРАЛИ ВРЕМЯ — ДОСТАВКА ИЛИ САМОВЫВОЗ
+# ВЫБОР ВРЕМЕНИ
 # =========================================================
 
 @router.callback_query(
@@ -475,11 +636,19 @@ async def choose_time(
     callback: CallbackQuery,
     state: FSMContext
 ):
-    time = callback.data.split(":", 1)[1]
 
-    await state.update_data(time=time)
+    time = callback.data.split(
+        ":",
+        1
+    )[1]
 
-    await state.set_state(OrderState.choosing_delivery)
+    await state.update_data(
+        time=time
+    )
+
+    await state.set_state(
+        OrderState.choosing_delivery
+    )
 
     keyboard = InlineKeyboardBuilder()
 
@@ -510,7 +679,7 @@ async def choose_time(
 
 
 # =========================================================
-# САМОВЫВОЗ — ВЫБОР ТОЧКИ
+# САМОВЫВОЗ
 # =========================================================
 
 @router.callback_query(
@@ -521,9 +690,11 @@ async def pickup_selected(
     callback: CallbackQuery,
     state: FSMContext
 ):
+
     keyboard = InlineKeyboardBuilder()
 
     for index, place in enumerate(pickup_places):
+
         keyboard.button(
             text=place,
             callback_data=f"pickup_place:{index}"
@@ -545,19 +716,21 @@ async def pickup_selected(
 
 
 # =========================================================
-# ВЫБРАЛИ ТОЧКУ САМОВЫВОЗА
+# ПОЛУЧЕНИЕ ТОВАРА ИЗ STATE
 # =========================================================
 
 def get_product_from_state(data):
-    category = categories[data["category_id"]]
-    brand_id = data.get("brand_id")
 
-    if brand_id:
-        brand = category["brands"][brand_id]
-        return brand["products"][data["product_id"]]
+    return get_product(
+        data["category_id"],
+        data["product_id"],
+        data.get("brand_id")
+    )
 
-    return category["products"][data["product_id"]]
 
+# =========================================================
+# ВЫБОР ТОЧКИ
+# =========================================================
 
 @router.callback_query(
     OrderState.choosing_delivery,
@@ -567,13 +740,29 @@ async def pickup_place_selected(
     callback: CallbackQuery,
     state: FSMContext
 ):
-    index = int(callback.data.split(":")[1])
+
+    try:
+
+        index = int(
+            callback.data.split(":")[1]
+        )
+
+    except (ValueError, IndexError):
+
+        await callback.answer(
+            "Ошибка выбора места",
+            show_alert=True
+        )
+
+        return
 
     if index >= len(pickup_places):
+
         await callback.answer(
             "Место не найдено",
             show_alert=True
         )
+
         return
 
     place = pickup_places[index]
@@ -587,6 +776,15 @@ async def pickup_place_selected(
     data = await state.get_data()
 
     product = get_product_from_state(data)
+
+    if not product:
+
+        await callback.answer(
+            "Товар не найден",
+            show_alert=True
+        )
+
+        return
 
     total_price = product["price"]
 
@@ -629,15 +827,18 @@ async def delivery_selected(
     callback: CallbackQuery,
     state: FSMContext
 ):
+
     await state.update_data(
         delivery=True,
         delivery_price=3
     )
 
-    await state.set_state(OrderState.entering_address)
+    await state.set_state(
+        OrderState.entering_address
+    )
 
     await callback.message.edit_text(
-        "Доставка\n\n"
+        "🚚 Доставка\n\n"
         "Напиши адрес доставки одним сообщением.\n\n"
         "Например:\n"
         "ул. Ленина, 10, кв. 25"
@@ -647,21 +848,34 @@ async def delivery_selected(
 
 
 # =========================================================
-# ПОЛУЧИЛИ АДРЕС
+# АДРЕС
 # =========================================================
 
-@router.message(OrderState.entering_address)
+@router.message(
+    OrderState.entering_address
+)
 async def address_received(
     message: Message,
     state: FSMContext
 ):
+
     if not message.text:
+
         await message.answer(
             "Пожалуйста, отправь адрес текстом."
         )
+
         return
 
     address = message.text.strip()
+
+    if not address:
+
+        await message.answer(
+            "Адрес не может быть пустым."
+        )
+
+        return
 
     await state.update_data(
         address=address
@@ -671,8 +885,23 @@ async def address_received(
 
     product = get_product_from_state(data)
 
-    delivery_price = 3
-    total_price = product["price"] + delivery_price
+    if not product:
+
+        await message.answer(
+            "Ошибка: товар не найден."
+        )
+
+        return
+
+    delivery_price = data.get(
+        "delivery_price",
+        3
+    )
+
+    total_price = (
+        product["price"]
+        + delivery_price
+    )
 
     keyboard = InlineKeyboardBuilder()
 
@@ -691,7 +920,7 @@ async def address_received(
     await message.answer(
         "Проверь заказ:\n\n"
         f"Товар: {product['name']}\n"
-        f"Товар: {product['price']}Р\n"
+        f"Цена товара: {product['price']}Р\n"
         f"Доставка: +{delivery_price}Р\n"
         f"Итого: {total_price}Р\n"
         f"Время: {data['time']}\n"
@@ -705,25 +934,50 @@ async def address_received(
 # ПОДТВЕРЖДЕНИЕ ЗАКАЗА
 # =========================================================
 
-@router.callback_query(F.data == "confirm_order")
+@router.callback_query(
+    F.data == "confirm_order"
+)
 async def confirm_order(
     callback: CallbackQuery,
     state: FSMContext
 ):
+
     data = await state.get_data()
 
     if not data:
+
         await callback.answer(
             "Заказ не найден.",
             show_alert=True
         )
+
         return
 
     product = get_product_from_state(data)
 
-    delivery_price = data.get("delivery_price", 0)
-    total_price = product["price"] + delivery_price
-    address = data.get("address", "Не указан")
+    if not product:
+
+        await callback.answer(
+            "Товар не найден.",
+            show_alert=True
+        )
+
+        return
+
+    delivery_price = data.get(
+        "delivery_price",
+        0
+    )
+
+    total_price = (
+        product["price"]
+        + delivery_price
+    )
+
+    address = data.get(
+        "address",
+        "Не указан"
+    )
 
     user = callback.from_user
 
@@ -734,16 +988,16 @@ async def confirm_order(
     )
 
     admin_message = (
-        "НОВЫЙ ЗАКАЗ\n\n"
-        f"Пользователь: {user.full_name}\n"
-        f"Username: {username}\n"
-        f"ID: {user.id}\n\n"
-        f"Товар: {product['name']}\n"
-        f"Цена товара: {product['price']}Р\n"
-        f"Доставка: {delivery_price}Р\n"
-        f"ИТОГО: {total_price}Р\n"
-        f"Время: {data['time']}\n"
-        f"Место/адрес: {address}"
+        "🛍 НОВЫЙ ЗАКАЗ\n\n"
+        f"👤 Пользователь: {user.full_name}\n"
+        f"📱 Username: {username}\n"
+        f"🆔 ID: {user.id}\n\n"
+        f"📦 Товар: {product['name']}\n"
+        f"💰 Цена товара: {product['price']}Р\n"
+        f"🚚 Доставка: {delivery_price}Р\n"
+        f"💵 ИТОГО: {total_price}Р\n"
+        f"🕐 Время: {data['time']}\n"
+        f"📍 Место/адрес: {address}"
     )
 
     chat_keyboard = InlineKeyboardBuilder()
@@ -762,29 +1016,54 @@ async def confirm_order(
     await state.clear()
 
     await callback.message.edit_text(
-        "Заказ принят!\n\n"
-        f"Товар: {product['name']}\n"
-        f"Итого: {total_price}Р\n"
-        f"Время: {data['time']}\n"
-        f"{address}\n\n"
+        "✅ Заказ принят!\n\n"
+        f"📦 Товар: {product['name']}\n"
+        f"💵 Итого: {total_price}Р\n"
+        f"🕐 Время: {data['time']}\n"
+        f"📍 {address}\n\n"
         "Информация отправлена администратору."
     )
 
     await callback.answer()
+
+
 # =========================================================
-# ЧАТ АДМИНА С ПОКУПАТЕЛЕМ
+# АДМИН — ОТКРЫТЬ ЧАТ
 # =========================================================
 
-@router.callback_query(F.data.startswith("chat:"))
-async def start_admin_chat(callback: CallbackQuery):
+@router.callback_query(
+    F.data.startswith("chat:")
+)
+async def start_admin_chat(
+    callback: CallbackQuery
+):
+
     if callback.from_user.id != ADMIN_ID:
+
         await callback.answer(
             "Нет доступа",
             show_alert=True
         )
+
         return
 
-    user_id = int(callback.data.split(":", 1)[1])
+    try:
+
+        user_id = int(
+            callback.data.split(
+                ":",
+                1
+            )[1]
+        )
+
+    except (ValueError, IndexError):
+
+        await callback.answer(
+            "Ошибка ID пользователя",
+            show_alert=True
+        )
+
+        return
 
     active_chats[ADMIN_ID] = user_id
 
@@ -803,39 +1082,67 @@ async def start_admin_chat(callback: CallbackQuery):
         reply_markup=keyboard.as_markup()
     )
 
-    await callback.answer("Чат открыт")
+    await callback.answer(
+        "Чат открыт"
+    )
 
 
-@router.callback_query(F.data == "chat_stop")
-async def stop_admin_chat(callback: CallbackQuery):
+# =========================================================
+# ЗАКРЫТЬ ЧАТ
+# =========================================================
+
+@router.callback_query(
+    F.data == "chat_stop"
+)
+async def stop_admin_chat(
+    callback: CallbackQuery
+):
+
     if callback.from_user.id != ADMIN_ID:
+
         await callback.answer(
             "Нет доступа",
             show_alert=True
         )
+
         return
 
-    active_chats.pop(ADMIN_ID, None)
+    active_chats.pop(
+        ADMIN_ID,
+        None
+    )
 
     await callback.message.edit_text(
         "❌ Диалог завершён."
     )
 
-    await callback.answer("Чат завершён")
+    await callback.answer(
+        "Чат завершён"
+    )
 
 
 # =========================================================
 # АДМИН → ПОКУПАТЕЛЬ
 # =========================================================
 
-@router.message(F.from_user.id == ADMIN_ID, F.text)
-async def admin_message_to_customer(message: Message):
-    user_id = active_chats.get(ADMIN_ID)
+@router.message(
+    F.from_user.id == ADMIN_ID,
+    F.text
+)
+async def admin_message_to_customer(
+    message: Message
+):
+
+    user_id = active_chats.get(
+        ADMIN_ID
+    )
 
     if not user_id:
+
         return
 
     try:
+
         await bot.send_message(
             user_id,
             "💬 Сообщение от администратора:\n\n"
@@ -846,7 +1153,13 @@ async def admin_message_to_customer(message: Message):
             "✅ Сообщение отправлено."
         )
 
-    except Exception:
+    except Exception as error:
+
+        print(
+            "Ошибка отправки покупателю:",
+            error
+        )
+
         await message.answer(
             "❌ Не удалось отправить сообщение.\n"
             "Возможно, покупатель заблокировал бота."
@@ -857,11 +1170,20 @@ async def admin_message_to_customer(message: Message):
 # ПОКУПАТЕЛЬ → АДМИН
 # =========================================================
 
-@router.message(F.from_user.id != ADMIN_ID, F.text)
-async def customer_message_to_admin(message: Message):
-    user_id = active_chats.get(ADMIN_ID)
+@router.message(
+    F.from_user.id != ADMIN_ID,
+    F.text
+)
+async def customer_message_to_admin(
+    message: Message
+):
+
+    user_id = active_chats.get(
+        ADMIN_ID
+    )
 
     if user_id != message.from_user.id:
+
         return
 
     user = message.from_user
@@ -880,19 +1202,24 @@ async def customer_message_to_admin(message: Message):
         f"ID: {user.id}\n\n"
         f"{message.text}"
     )
+
+
 # =========================================================
 # ОТМЕНА
 # =========================================================
 
-@router.callback_query(F.data == "cancel")
+@router.callback_query(
+    F.data == "cancel"
+)
 async def cancel_order(
     callback: CallbackQuery,
     state: FSMContext
 ):
+
     await state.clear()
 
     await callback.message.edit_text(
-        "Заказ отменён.\n\n"
+        "❌ Заказ отменён.\n\n"
         "Можешь начать заново.",
         reply_markup=main_keyboard()
     )
@@ -904,15 +1231,18 @@ async def cancel_order(
 # ГЛАВНОЕ МЕНЮ
 # =========================================================
 
-@router.callback_query(F.data == "home")
+@router.callback_query(
+    F.data == "home"
+)
 async def home(
     callback: CallbackQuery,
     state: FSMContext
 ):
+
     await state.clear()
 
     await callback.message.edit_text(
-        "Главное меню\n\n"
+        "🏠 Главное меню\n\n"
         "Выбери действие:",
         reply_markup=main_keyboard()
     )
@@ -925,15 +1255,32 @@ async def home(
 # =========================================================
 
 async def main():
-    print("Бот запущен!")
 
-    from aiogram import Dispatcher
+    print("🚀 Бот запущен!")
 
     dp = Dispatcher()
+
     dp.include_router(router)
 
-    await dp.start_polling(bot)
+    await dp.start_polling(
+        bot
+    )
 
+
+# =========================================================
+# MAIN
+# =========================================================
 
 if __name__ == "__main__":
-    asyncio.run(main())
+
+    try:
+
+        asyncio.run(
+            main()
+        )
+
+    except KeyboardInterrupt:
+
+        print(
+            "🛑 Бот остановлен."
+        )
