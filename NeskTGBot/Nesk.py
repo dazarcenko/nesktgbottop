@@ -51,14 +51,8 @@ categories = {
                         "name": "PODONKI & BLOOD 60мг — Чёрная смородина",
                         "price": 15,
                         "description": ""
-                    },
+
                     "podonki_4": {
-                        "name": "PODONKI & BLOOD 60мг — Ягодный энергетик",
-                        "price": 15,
-                        "description": ""
-                    },
-                   
-                    "podonki_5": {
                         "name": "PODONKI & ALFA VAPE 50мг — Дыня",
                         "price": 15,
                         "description": ""
