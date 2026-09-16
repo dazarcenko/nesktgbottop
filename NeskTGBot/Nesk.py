@@ -64,11 +64,6 @@ categories = {
                         "description": ""
                     },
 
-                    "podonki_2": {
-                        "name": "PODONKI & BLOOD 60мг — Малиновый лимонад",
-                        "price": 15,
-                        "description": ""
-                    },
 
                     "podonki_3": {
                         "name": "PODONKI & BLOOD 60мг — Чёрная смородина",
