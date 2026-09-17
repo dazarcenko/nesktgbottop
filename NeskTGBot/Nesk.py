@@ -49,55 +49,397 @@ categories = {
 
         "brands": {
 
-            # -------------------------------------------------
+            # =================================================
             # PODONKI
-            # -------------------------------------------------
+            # =================================================
 
             "podonki": {
                 "name": "🧪 PODONKI",
 
-                "products": {
+                "variants": {
 
-                    "podonki_1": {
-                        "name": "PODONKI & BLOOD 60мг — Лесные ягоды",
-                        "price": 15,
-                        "description": ""
+                    # -------------------------------------------------
+                    # PODONKI & BLOOD
+                    # -------------------------------------------------
+
+                    "podonki_blood": {
+                        "name": "🧪 & BLOOD",
+
+                        "products": {
+
+                            # Существующие товары из кода
+                            "podonki_1": {
+                                "name": "PODONKI & BLOOD 60мг — Лесные ягоды",
+                                "price": 15,
+                                "description": ""
+                            },
+
+                            "podonki_3": {
+                                "name": "PODONKI & BLOOD 60мг — Чёрная смородина",
+                                "price": 15,
+                                "description": ""
+                            },
+
+                            # Товары из ОСТАТКОВ объединены сюда же
+                            "podonki_blood_1": {
+                                "name": "PODONKI BLOOD 40мг — Лесные ягоды",
+                                "price": 12,
+                                "description": ""
+                            },
+
+                            "podonki_blood_2": {
+                                "name": "PODONKI BLOOD 40мг — Малиновый лимонад",
+                                "price": 12,
+                                "description": ""
+                            }
+                        }
                     },
 
+                    # -------------------------------------------------
+                    # PODONKI MALASIAN ARCADE
+                    # -------------------------------------------------
 
-                    "podonki_3": {
-                        "name": "PODONKI & BLOOD 60мг — Чёрная смородина",
-                        "price": 15,
-                        "description": ""
+                    "podonki_malasian_arcade": {
+                        "name": "🧪 MALASIAN ARCADE",
+
+                        "products": {
+
+                            "pma_1": {
+                                "name": "PODONKI MALASIAN ARCADE 50мг — Виноград ежевика",
+                                "price": 9.5,
+                                "description": ""
+                            },
+
+                            "pma_2": {
+                                "name": "PODONKI MALASIAN ARCADE 50мг — Вишневый энергетик",
+                                "price": 9.5,
+                                "description": ""
+                            },
+
+                            "pma_3": {
+                                "name": "PODONKI MALASIAN ARCADE 50мг — Лесные ягоды",
+                                "price": 9.5,
+                                "description": ""
+                            },
+
+                            "pma_4": {
+                                "name": "PODONKI MALASIAN ARCADE 50мг — Малина черника",
+                                "price": 9.5,
+                                "description": ""
+                            },
+
+                            "pma_5": {
+                                "name": "PODONKI MALASIAN ARCADE 50мг — Лимонад голубика",
+                                "price": 9.5,
+                                "description": ""
+                            },
+
+                            "pma_6": {
+                                "name": "PODONKI MALASIAN ARCADE 50мг — Маунти дью яблоко",
+                                "price": 9.5,
+                                "description": ""
+                            },
+
+                            "pma_7": {
+                                "name": "PODONKI MALASIAN ARCADE 50мг — Цитрусовый микс",
+                                "price": 9.5,
+                                "description": ""
+                            },
+
+                            "pma_8": {
+                                "name": "PODONKI MALASIAN ARCADE 50мг — Явболо вишня",
+                                "price": 9.5,
+                                "description": ""
+                            }
+                        }
                     },
 
-                    "podonki_4": {
-                        "name": "PODONKI & ALFA VAPE 50мг — Дыня",
-                        "price": 15,
-                        "description": ""
+                    # -------------------------------------------------
+                    # PODONKI MALASIAN NEW
+                    # -------------------------------------------------
+
+                    "podonki_malasian_new": {
+                        "name": "🧪 MALASIAN NEW",
+
+                        "products": {
+
+                            "pmn_1": {
+                                "name": "PODONKI MALASIAN NEW 50мг — Киви яблоко",
+                                "price": 9,
+                                "description": ""
+                            },
+
+                            "pmn_2": {
+                                "name": "PODONKI MALASIAN NEW 50мг — Розовый лимонад",
+                                "price": 9,
+                                "description": ""
+                            },
+
+                            "pmn_3": {
+                                "name": "PODONKI MALASIAN NEW 50мг — Черника смородина анис",
+                                "price": 9,
+                                "description": ""
+                            }
+                        }
+                    },
+
+                    # -------------------------------------------------
+                    # PODONKI & ALFA VAPE
+                    # -------------------------------------------------
+
+                    "podonki_alfa_vape": {
+                        "name": "🧪 & ALFA VAPE",
+
+                        "products": {
+
+                            "podonki_4": {
+                                "name": "PODONKI & ALFA VAPE 50мг — Дыня",
+                                "price": 15,
+                                "description": ""
+                            }
+                        }
+                    },
+
+                    # -------------------------------------------------
+                    # PODONKI ALFA ICE — из ОСТАТКОВ
+                    # -------------------------------------------------
+
+                    "podonki_alfa_ice": {
+                        "name": "🧪 ALFA ICE",
+
+                        "products": {
+
+                            "podonki_alfa_ice_1": {
+                                "name": "PODONKI ALFA ICE 50мг — Садовые ягоды",
+                                "price": 15,
+                                "description": ""
+                            }
+                        }
                     }
                 }
             },
 
-            # -------------------------------------------------
+            # =================================================
             # RICK & MORTY
-            # -------------------------------------------------
+            # =================================================
 
             "rick_and_morty": {
                 "name": "🧪 RICK & MORTY",
 
-                "products": {
+                "variants": {
 
-                    "rm_1": {
-                        "name": "R&M BAD TRIP 50мг — Клубника земляника",
-                        "price": 16,
-                        "description": ""
+                    "bad_trip": {
+                        "name": "🧪 BAD TRIP",
+
+                        "products": {
+
+                            "rm_1": {
+                                "name": "R&M BAD TRIP 50мг — Клубника земляника",
+                                "price": 16,
+                                "description": ""
+                            },
+
+                            "rm_2": {
+                                "name": "R&M BAD TRIP 50мг — Садовые ягоды",
+                                "price": 16,
+                                "description": ""
+                            },
+
+                            # Позиция из ОСТАТКОВ добавлена в эту же
+                            # разновидность PODONKI → BAD TRIP.
+                            "rm_3": {
+                                "name": "RICK & MORTY bad trip 50 — Дыня",
+                                "price": 16,
+                                "description": ""
+                            }
+                        }
+                    }
+                }
+            },
+
+            # =================================================
+            # OGGO
+            # =================================================
+
+            "oggo": {
+                "name": "🧪 OGGO",
+
+                "variants": {
+
+                    "oggo_max": {
+                        "name": "🧪 MAX",
+
+                        "products": {
+
+                            "oggo_max_1": {
+                                "name": "OGGO MAX 50мг — Ананасовый сок",
+                                "price": 9.5,
+                                "description": ""
+                            },
+
+                            "oggo_max_2": {
+                                "name": "OGGO MAX 50мг — Манго банан",
+                                "price": 9.5,
+                                "description": ""
+                            },
+
+                            "oggo_max_3": {
+                                "name": "OGGO MAX 50мг — Сладкий грейпфрут",
+                                "price": 9.5,
+                                "description": ""
+                            },
+
+                            "oggo_max_4": {
+                                "name": "OGGO MAX 50мг — Сладкое киви",
+                                "price": 9.5,
+                                "description": ""
+                            },
+
+                            "oggo_max_5": {
+                                "name": "OGGO MAX 50мг — Энергетик с малиной",
+                                "price": 9.5,
+                                "description": ""
+                            },
+
+                            "oggo_max_6": {
+                                "name": "OGGO MAX 50мг — Ягодный мармелад",
+                                "price": 9.5,
+                                "description": ""
+                            },
+
+                            "oggo_max_7": {
+                                "name": "OGGO MAX 50мг — Сладкая маракуя",
+                                "price": 9.5,
+                                "description": ""
+                            }
+                        }
                     },
 
-                    "rm_2": {
-                        "name": "R&M BAD TRIP 50мг — Садовые ягоды",
-                        "price": 16,
-                        "description": ""
+                    "oggo_cherry": {
+                        "name": "🧪 CHERRY",
+
+                        "products": {
+
+                            "oggo_cherry_1": {
+                                "name": "OGGO CHERRY 50мг — Вишня виноград",
+                                "price": 9.5,
+                                "description": ""
+                            },
+
+                            "oggo_cherry_2": {
+                                "name": "OGGO CHERRY 50мг — Кислый вишневый лимонад",
+                                "price": 9.5,
+                                "description": ""
+                            },
+
+                            "oggo_cherry_3": {
+                                "name": "OGGO CHERRY 50мг — Вишневый мармелад",
+                                "price": 9.5,
+                                "description": ""
+                            }
+                        }
+                    }
+                }
+            },
+
+            # =================================================
+            # ANIMALOVE
+            # =================================================
+
+            "animalove": {
+                "name": "🧪 ANIMALOVE",
+
+                "variants": {
+
+                    "phobia": {
+                        "name": "🧪 PHOBIA",
+
+                        "products": {
+
+                            "animalove_1": {
+                                "name": "ANIMALOVE PHOBIA 70мг — Голубика черная смородина",
+                                "price": 10,
+                                "description": ""
+                            },
+
+                            "animalove_2": {
+                                "name": "ANIMALOVE PHOBIA 70мг — Двойной персик",
+                                "price": 10,
+                                "description": ""
+                            }
+                        }
+                    }
+                }
+            },
+
+            # =================================================
+            # DOGSWILL
+            # =================================================
+
+            "dogswill": {
+                "name": "🧪 DogSwill",
+
+                "variants": {
+
+                    "dogswill": {
+                        "name": "🧪 DogSwill",
+
+                        "products": {
+
+                            "dogswill_1": {
+                                "name": "DogSwill 70мг — Персиковый лимонад",
+                                "price": 9.5,
+                                "description": ""
+                            },
+
+                            "dogswill_2": {
+                                "name": "DogSwill 70мг — Малиновый лимонад",
+                                "price": 9.5,
+                                "description": ""
+                            },
+
+                            "dogswill_3": {
+                                "name": "DogSwill 70мг — Земляничный фреш",
+                                "price": 9.5,
+                                "description": ""
+                            },
+
+                            "dogswill_4": {
+                                "name": "DogSwill 70мг — Черника голубика",
+                                "price": 9.5,
+                                "description": ""
+                            },
+
+                            "dogswill_5": {
+                                "name": "DogSwill 70мг — Ягодный редбулл",
+                                "price": 9.5,
+                                "description": ""
+                            }
+                        }
+                    }
+                }
+            },
+
+            # =================================================
+            # АНАРХИЯ
+            # =================================================
+
+            "anarhiya": {
+                "name": "🧪 АНАРХИЯ",
+
+                "variants": {
+
+                    "v2": {
+                        "name": "🧪 V2",
+
+                        "products": {
+
+                            "anarhiya_1": {
+                                "name": "АНАРХИЯ V2 — Кола сода лед",
+                                "price": 9.5,
+                                "description": ""
+                            }
+                        }
                     }
                 }
             }
@@ -123,6 +465,12 @@ categories = {
                         "name": "XROS 5 NANO Orange leatherette",
                         "price": 95,
                         "description": ""
+                    },
+
+                    "headphones_2": {
+                        "name": "XROS 5 NANO (Orange Leatherette)",
+                        "price": 75,
+                        "description": ""
                     }
                 }
             }
@@ -131,18 +479,38 @@ categories = {
 
 
     # =====================================================
-    # ДРУГОЕ
+    # ИСПАРИТЕЛИ
     # =====================================================
 
     "other": {
-        "name": "📦 Другое",
+        "name": "⚙️ Испарители",
 
-        "products": {
+        "brands": {
 
-            "other_1": {
-                "name": "тут пока ничего нет...",
-                "price": 0,
-                "description": ""
+            "VAPORESSO": {
+                "name": "⚙️ VAPORESSO",
+
+                "products": {
+
+                    "xros_corex_3": {
+                        "name": "Xros Corex 3.0",
+                        "price": 8.5,
+                        "description": ""
+                    }
+                }
+            },
+
+            "GEEKVAPE": {
+                "name": "⚙️ GEEKVAPE",
+
+                "products": {
+
+                    "aegis_coil_boost": {
+                        "name": "Aegis coil Boost Версия",
+                        "price": 8.5,
+                        "description": ""
+                    }
+                }
             }
         }
     }
@@ -283,10 +651,6 @@ async def category_selected(
 
     keyboard = InlineKeyboardBuilder()
 
-    # -----------------------------------------------------
-    # ЕСЛИ ЕСТЬ БРЕНДЫ
-    # -----------------------------------------------------
-
     if "brands" in category:
 
         for brand_id, brand in category["brands"].items():
@@ -295,10 +659,6 @@ async def category_selected(
                 text=brand["name"],
                 callback_data=f"brand:{category_id}:{brand_id}"
             )
-
-    # -----------------------------------------------------
-    # ЕСЛИ БРЕНДОВ НЕТ
-    # -----------------------------------------------------
 
     elif "products" in category:
 
@@ -360,10 +720,7 @@ async def brand_selected(
 
         return
 
-    brand = category.get(
-        "brands",
-        {}
-    ).get(brand_id)
+    brand = category.get("brands", {}).get(brand_id)
 
     if not brand:
 
@@ -376,16 +733,40 @@ async def brand_selected(
 
     keyboard = InlineKeyboardBuilder()
 
-    for product_id, product in brand["products"].items():
+    # Новая структура: производитель -> разновидность -> вкус
+    if "variants" in brand:
+
+        for variant_id, variant in brand["variants"].items():
+
+            keyboard.button(
+                text=variant["name"],
+                callback_data=f"variant:{category_id}:{brand_id}:{variant_id}"
+            )
+
+        keyboard.button(
+            text="Назад",
+            callback_data=f"category:{category_id}"
+        )
+
+        keyboard.adjust(1)
+
+        await callback.message.edit_text(
+            f"{brand['name']}\n\n"
+            "Выбери разновидность:",
+            reply_markup=keyboard.as_markup()
+        )
+
+        await callback.answer()
+        return
+
+    # Старая структура: производитель -> товар
+    for product_id, product in brand.get("products", {}).items():
 
         product_name = product["name"]
 
         if "—" in product_name:
 
-            flavor = product_name.split(
-                "—",
-                1
-            )[1].strip()
+            flavor = product_name.split("—", 1)[1].strip()
 
         else:
 
@@ -418,13 +799,99 @@ async def brand_selected(
 
 
 # =========================================================
+# РАЗНОВИДНОСТЬ ТОВАРА
+# =========================================================
+
+@router.callback_query(F.data.startswith("variant:"))
+async def variant_selected(
+    callback: CallbackQuery
+):
+
+    _, category_id, brand_id, variant_id = callback.data.split(":")
+
+    category = categories.get(category_id)
+
+    if not category:
+
+        await callback.answer(
+            "Категория не найдена",
+            show_alert=True
+        )
+
+        return
+
+    brand = category.get("brands", {}).get(brand_id)
+
+    if not brand:
+
+        await callback.answer(
+            "Производитель не найден",
+            show_alert=True
+        )
+
+        return
+
+    variant = brand.get("variants", {}).get(variant_id)
+
+    if not variant:
+
+        await callback.answer(
+            "Разновидность не найдена",
+            show_alert=True
+        )
+
+        return
+
+    keyboard = InlineKeyboardBuilder()
+
+    for product_id, product in variant.get("products", {}).items():
+
+        product_name = product["name"]
+
+        if "—" in product_name:
+
+            flavor = product_name.split("—", 1)[1].strip()
+
+        else:
+
+            flavor = product_name
+
+        keyboard.button(
+            text=f"{flavor} — {product['price']}Р",
+            callback_data=(
+                f"product:"
+                f"{category_id}:"
+                f"{brand_id}:"
+                f"{variant_id}:"
+                f"{product_id}"
+            )
+        )
+
+    keyboard.button(
+        text="Назад",
+        callback_data=f"brand:{category_id}:{brand_id}"
+    )
+
+    keyboard.adjust(1)
+
+    await callback.message.edit_text(
+        f"{variant['name']}\n\n"
+        "Выбери вкус:",
+        reply_markup=keyboard.as_markup()
+    )
+
+    await callback.answer()
+
+
+# =========================================================
 # ПОЛУЧЕНИЕ ТОВАРА
 # =========================================================
 
 def get_product(
     category_id,
     product_id,
-    brand_id=None
+    brand_id=None,
+    variant_id=None
 ):
 
     category = categories.get(category_id)
@@ -441,6 +908,21 @@ def get_product(
 
         if not brand:
             return None
+
+        if variant_id:
+
+            variant = brand.get(
+                "variants",
+                {}
+            ).get(variant_id)
+
+            if not variant:
+                return None
+
+            return variant.get(
+                "products",
+                {}
+            ).get(product_id)
 
         return brand.get(
             "products",
@@ -464,20 +946,29 @@ async def product_selected(
 
     parts = callback.data.split(":")
 
-    if len(parts) == 4:
+    # Новая структура: product:category:brand:variant:product
+    if len(parts) == 5:
+
+        _, category_id, brand_id, variant_id, product_id = parts
+
+    # Старая структура: product:category:brand:product
+    elif len(parts) == 4:
 
         _, category_id, brand_id, product_id = parts
+        variant_id = None
 
+    # Старая структура без бренда
     else:
 
         _, category_id, product_id = parts
-
         brand_id = None
+        variant_id = None
 
     product = get_product(
         category_id,
         product_id,
-        brand_id
+        brand_id,
+        variant_id
     )
 
     if not product:
@@ -491,7 +982,24 @@ async def product_selected(
 
     keyboard = InlineKeyboardBuilder()
 
-    if brand_id:
+    if brand_id and variant_id:
+
+        select_callback = (
+            f"select:"
+            f"{category_id}:"
+            f"{brand_id}:"
+            f"{variant_id}:"
+            f"{product_id}"
+        )
+
+        back_callback = (
+            f"variant:"
+            f"{category_id}:"
+            f"{brand_id}:"
+            f"{variant_id}"
+        )
+
+    elif brand_id:
 
         select_callback = (
             f"select:"
@@ -558,20 +1066,29 @@ async def select_product(
 
     parts = callback.data.split(":")
 
-    if len(parts) == 4:
+    # Новая структура: select:category:brand:variant:product
+    if len(parts) == 5:
+
+        _, category_id, brand_id, variant_id, product_id = parts
+
+    # Старая структура: select:category:brand:product
+    elif len(parts) == 4:
 
         _, category_id, brand_id, product_id = parts
+        variant_id = None
 
+    # Старая структура без бренда
     else:
 
         _, category_id, product_id = parts
-
         brand_id = None
+        variant_id = None
 
     product = get_product(
         category_id,
         product_id,
-        brand_id
+        brand_id,
+        variant_id
     )
 
     if not product:
@@ -586,6 +1103,7 @@ async def select_product(
     await state.update_data(
         category_id=category_id,
         brand_id=brand_id,
+        variant_id=variant_id,
         product_id=product_id
     )
 
@@ -719,7 +1237,8 @@ def get_product_from_state(data):
     return get_product(
         data["category_id"],
         data["product_id"],
-        data.get("brand_id")
+        data.get("brand_id"),
+        data.get("variant_id")
     )
 
 
