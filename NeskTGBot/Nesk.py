@@ -67,7 +67,6 @@ categories = {
 
                         "products": {
 
-                            # Существующие товары из кода
                             "podonki_1": {
                                 "name": "PODONKI & BLOOD 60мг — Лесные ягоды",
                                 "price": 10,
@@ -91,37 +90,37 @@ categories = {
                         "products": {
                             "pma_2": {
                                 "name": "PODONKI MALASIAN ARCADE 50мг — Вишневый энергетик",
-                                "price": 9.5,
+                                "price": 15,
                                 "description": ""
                             },
 
                             "pma_4": {
                                 "name": "PODONKI MALASIAN ARCADE 50мг — Малина черника",
-                                "price": 9.5,
+                                "price": 15,
                                 "description": ""
                             },
 
                             "pma_5": {
                                 "name": "PODONKI MALASIAN ARCADE 50мг — Лимонад голубика",
-                                "price": 9.5,
+                                "price": 15,
                                 "description": ""
                             },
 
                             "pma_6": {
                                 "name": "PODONKI MALASIAN ARCADE 50мг — Маунти дью яблоко",
-                                "price": 9.5,
+                                "price": 15,
                                 "description": ""
                             },
 
                             "pma_7": {
                                 "name": "PODONKI MALASIAN ARCADE 50мг — Цитрусовый микс",
-                                "price": 9.5,
+                                "price": 15,
                                 "description": ""
                             },
 
                             "pma_8": {
                                 "name": "PODONKI MALASIAN ARCADE 50мг — Явболо вишня",
-                                "price": 9.5,
+                                "price": 15,
                                 "description": ""
                             }
                         }
@@ -138,19 +137,19 @@ categories = {
 
                             "pmn_1": {
                                 "name": "PODONKI MALASIAN NEW 50мг — Киви яблоко",
-                                "price": 9,
+                                "price": 15,
                                 "description": ""
                             },
 
                             "pmn_2": {
                                 "name": "PODONKI MALASIAN NEW 50мг — Розовый лимонад",
-                                "price": 9,
+                                "price": 15,
                                 "description": ""
                             },
 
                             "pmn_3": {
                                 "name": "PODONKI MALASIAN NEW 50мг — Черника смородина анис",
-                                "price": 9,
+                                "price": 15,
                                 "description": ""
                             }
                         }
@@ -218,8 +217,6 @@ categories = {
                                 "description": ""
                             },
 
-                            # Позиция из ОСТАТКОВ добавлена в эту же
-                            # разновидность PODONKI → BAD TRIP.
                             "rm_3": {
                                 "name": "RICK & MORTY bad trip 50 — Дыня",
                                 "price": 16,
@@ -246,43 +243,43 @@ categories = {
 
                             "oggo_max_1": {
                                 "name": "OGGO MAX 50мг — Ананасовый сок",
-                                "price": 9.5,
+                                "price": 17,
                                 "description": ""
                             },
 
                             "oggo_max_2": {
                                 "name": "OGGO MAX 50мг — Манго банан",
-                                "price": 9.5,
+                                "price": 17,
                                 "description": ""
                             },
 
                             "oggo_max_3": {
                                 "name": "OGGO MAX 50мг — Сладкий грейпфрут",
-                                "price": 9.5,
+                                "price": 17,
                                 "description": ""
                             },
 
                             "oggo_max_4": {
                                 "name": "OGGO MAX 50мг — Сладкое киви",
-                                "price": 9.5,
+                                "price": 17,
                                 "description": ""
                             },
 
                             "oggo_max_5": {
                                 "name": "OGGO MAX 50мг — Энергетик с малиной",
-                                "price": 9.5,
+                                "price": 17,
                                 "description": ""
                             },
 
                             "oggo_max_6": {
                                 "name": "OGGO MAX 50мг — Ягодный мармелад",
-                                "price": 9.5,
+                                "price": 17,
                                 "description": ""
                             },
 
                             "oggo_max_7": {
                                 "name": "OGGO MAX 50мг — Сладкая маракуя",
-                                "price": 9.5,
+                                "price": 17,
                                 "description": ""
                             }
                         }
@@ -295,19 +292,19 @@ categories = {
 
                             "oggo_cherry_1": {
                                 "name": "OGGO CHERRY 50мг — Вишня виноград",
-                                "price": 9.5,
+                                "price": 18,
                                 "description": ""
                             },
 
                             "oggo_cherry_2": {
                                 "name": "OGGO CHERRY 50мг — Кислый вишневый лимонад",
-                                "price": 9.5,
+                                "price": 18,
                                 "description": ""
                             },
 
                             "oggo_cherry_3": {
                                 "name": "OGGO CHERRY 50мг — Вишневый мармелад",
-                                "price": 9.5,
+                                "price": 18,
                                 "description": ""
                             }
                         }
@@ -331,55 +328,31 @@ categories = {
 
                             "dogswill_1": {
                                 "name": "DogSwill 70мг — Персиковый лимонад",
-                                "price": 9.5,
+                                "price": 17,
                                 "description": ""
                             },
 
                             "dogswill_2": {
                                 "name": "DogSwill 70мг — Малиновый лимонад",
-                                "price": 9.5,
+                                "price": 17,
                                 "description": ""
                             },
 
                             "dogswill_3": {
                                 "name": "DogSwill 70мг — Земляничный фреш",
-                                "price": 9.5,
+                                "price": 17,
                                 "description": ""
                             },
 
                             "dogswill_4": {
                                 "name": "DogSwill 70мг — Черника голубика",
-                                "price": 9.5,
+                                "price": 17,
                                 "description": ""
                             },
 
                             "dogswill_5": {
                                 "name": "DogSwill 70мг — Ягодный редбулл",
-                                "price": 9.5,
-                                "description": ""
-                            }
-                        }
-                    }
-                }
-            },
-
-            # =================================================
-            # АНАРХИЯ
-            # =================================================
-
-            "anarhiya": {
-                "name": "🧪 АНАРХИЯ",
-
-                "variants": {
-
-                    "v2": {
-                        "name": "🧪 V2",
-
-                        "products": {
-
-                            "anarhiya_1": {
-                                "name": "АНАРХИЯ V2 — Кола сода лед",
-                                "price": 9.5,
+                                "price": 17,
                                 "description": ""
                             }
                         }
@@ -388,7 +361,6 @@ categories = {
             }
         }
     },
-
 
     # =====================================================
     # ПОД-СИСТЕМЫ
@@ -403,16 +375,10 @@ categories = {
                 "name": "🟩 VAPORESSO",
 
                 "products": {
-
-                    "headphones_1": {
-                        "name": "XROS 5 NANO Orange leatherette",
-                        "price": 95,
-                        "description": ""
-                    },
-
+                    
                     "headphones_2": {
                         "name": "XROS 5 NANO (Orange Leatherette)",
-                        "price": 75,
+                        "price": 70,
                         "description": ""
                     }
                 }
@@ -436,8 +402,8 @@ categories = {
                 "products": {
 
                     "xros_corex_3": {
-                        "name": "Xros Corex 3.0",
-                        "price": 8.5,
+                        "name": "Xros Corex 3.0, 0.4 ОМ",
+                        "price": 15,
                         "description": ""
                     }
                 }
@@ -449,8 +415,8 @@ categories = {
                 "products": {
 
                     "aegis_coil_boost": {
-                        "name": "Aegis coil Boost Версия",
-                        "price": 8.5,
+                        "name": "Aegis Сoil 0.2 ОМ 50-58 Ватт",
+                        "price": 13,
                         "description": ""
                     }
                 }
@@ -492,11 +458,8 @@ pickup_places = [
 # =========================================================
 
 class OrderState(StatesGroup):
-
     choosing_time = State()
-
     choosing_delivery = State()
-
     entering_address = State()
 
 
@@ -505,16 +468,12 @@ class OrderState(StatesGroup):
 # =========================================================
 
 def main_keyboard():
-
     keyboard = InlineKeyboardBuilder()
-
     keyboard.button(
         text="🛒 Заказать",
         callback_data="catalog"
     )
-
     keyboard.adjust(1)
-
     return keyboard.as_markup()
 
 
@@ -523,13 +482,8 @@ def main_keyboard():
 # =========================================================
 
 @router.message(CommandStart())
-async def start(
-    message: Message,
-    state: FSMContext
-):
-
+async def start(message: Message, state: FSMContext):
     await state.clear()
-
     await message.answer(
         "🛍 Добро пожаловать в магазин!\n\n"
         "Выбери действие:",
@@ -542,14 +496,10 @@ async def start(
 # =========================================================
 
 @router.callback_query(F.data == "catalog")
-async def catalog(
-    callback: CallbackQuery
-):
-
+async def catalog(callback: CallbackQuery):
     keyboard = InlineKeyboardBuilder()
 
     for category_id, category in categories.items():
-
         keyboard.button(
             text=category["name"],
             callback_data=f"category:{category_id}"
@@ -566,7 +516,6 @@ async def catalog(
         "📂 Выбери категорию:",
         reply_markup=keyboard.as_markup()
     )
-
     await callback.answer()
 
 
@@ -575,38 +524,24 @@ async def catalog(
 # =========================================================
 
 @router.callback_query(F.data.startswith("category:"))
-async def category_selected(
-    callback: CallbackQuery
-):
-
+async def category_selected(callback: CallbackQuery):
     category_id = callback.data.split(":", 1)[1]
-
     category = categories.get(category_id)
 
     if not category:
-
-        await callback.answer(
-            "Категория не найдена",
-            show_alert=True
-        )
-
+        await callback.answer("Категория не найдена", show_alert=True)
         return
 
     keyboard = InlineKeyboardBuilder()
 
     if "brands" in category:
-
         for brand_id, brand in category["brands"].items():
-
             keyboard.button(
                 text=brand["name"],
                 callback_data=f"brand:{category_id}:{brand_id}"
             )
-
     elif "products" in category:
-
         for product_id, product in category["products"].items():
-
             keyboard.button(
                 text=f"{product['name']} — {product['price']}Р",
                 callback_data=f"product:{category_id}:{product_id}"
@@ -616,28 +551,14 @@ async def category_selected(
         text="Назад",
         callback_data="catalog"
     )
-
     keyboard.adjust(1)
 
     if "brands" in category:
-
-        text = (
-            f"{category['name']}\n\n"
-            "Выбери производителя:"
-        )
-
+        text = f"{category['name']}\n\nВыбери производителя:"
     else:
+        text = f"{category['name']}\n\nВыбери товар:"
 
-        text = (
-            f"{category['name']}\n\n"
-            "Выбери товар:"
-        )
-
-    await callback.message.edit_text(
-        text,
-        reply_markup=keyboard.as_markup()
-    )
-
+    await callback.message.edit_text(text, reply_markup=keyboard.as_markup())
     await callback.answer()
 
 
@@ -646,41 +567,24 @@ async def category_selected(
 # =========================================================
 
 @router.callback_query(F.data.startswith("brand:"))
-async def brand_selected(
-    callback: CallbackQuery
-):
-
+async def brand_selected(callback: CallbackQuery):
     _, category_id, brand_id = callback.data.split(":")
 
     category = categories.get(category_id)
-
     if not category:
-
-        await callback.answer(
-            "Категория не найдена",
-            show_alert=True
-        )
-
+        await callback.answer("Категория не найдена", show_alert=True)
         return
 
     brand = category.get("brands", {}).get(brand_id)
-
     if not brand:
-
-        await callback.answer(
-            "Производитель не найден",
-            show_alert=True
-        )
-
+        await callback.answer("Производитель не найден", show_alert=True)
         return
 
     keyboard = InlineKeyboardBuilder()
 
     # Новая структура: производитель -> разновидность -> вкус
     if "variants" in brand:
-
         for variant_id, variant in brand["variants"].items():
-
             keyboard.button(
                 text=variant["name"],
                 callback_data=f"variant:{category_id}:{brand_id}:{variant_id}"
@@ -690,54 +594,38 @@ async def brand_selected(
             text="Назад",
             callback_data=f"category:{category_id}"
         )
-
         keyboard.adjust(1)
 
         await callback.message.edit_text(
-            f"{brand['name']}\n\n"
-            "Выбери разновидность:",
+            f"{brand['name']}\n\nВыбери разновидность:",
             reply_markup=keyboard.as_markup()
         )
-
         await callback.answer()
         return
 
     # Старая структура: производитель -> товар
     for product_id, product in brand.get("products", {}).items():
-
         product_name = product["name"]
-
         if "—" in product_name:
-
             flavor = product_name.split("—", 1)[1].strip()
-
         else:
-
             flavor = product_name
 
         keyboard.button(
             text=f"{flavor} — {product['price']}Р",
-            callback_data=(
-                f"product:"
-                f"{category_id}:"
-                f"{brand_id}:"
-                f"{product_id}"
-            )
+            callback_data=f"product:{category_id}:{brand_id}:{product_id}"
         )
 
     keyboard.button(
         text="Назад",
         callback_data=f"category:{category_id}"
     )
-
     keyboard.adjust(1)
 
     await callback.message.edit_text(
-        f"{brand['name']}\n\n"
-        "Выбери вкус:",
+        f"{brand['name']}\n\nВыбери вкус:",
         reply_markup=keyboard.as_markup()
     )
-
     await callback.answer()
 
 
@@ -746,83 +634,48 @@ async def brand_selected(
 # =========================================================
 
 @router.callback_query(F.data.startswith("variant:"))
-async def variant_selected(
-    callback: CallbackQuery
-):
-
+async def variant_selected(callback: CallbackQuery):
     _, category_id, brand_id, variant_id = callback.data.split(":")
 
     category = categories.get(category_id)
-
     if not category:
-
-        await callback.answer(
-            "Категория не найдена",
-            show_alert=True
-        )
-
+        await callback.answer("Категория не найдена", show_alert=True)
         return
 
     brand = category.get("brands", {}).get(brand_id)
-
     if not brand:
-
-        await callback.answer(
-            "Производитель не найден",
-            show_alert=True
-        )
-
+        await callback.answer("Производитель не найден", show_alert=True)
         return
 
     variant = brand.get("variants", {}).get(variant_id)
-
     if not variant:
-
-        await callback.answer(
-            "Разновидность не найдена",
-            show_alert=True
-        )
-
+        await callback.answer("Разновидность не найдена", show_alert=True)
         return
 
     keyboard = InlineKeyboardBuilder()
 
     for product_id, product in variant.get("products", {}).items():
-
         product_name = product["name"]
-
         if "—" in product_name:
-
             flavor = product_name.split("—", 1)[1].strip()
-
         else:
-
             flavor = product_name
 
         keyboard.button(
             text=f"{flavor} — {product['price']}Р",
-            callback_data=(
-                f"product:"
-                f"{category_id}:"
-                f"{brand_id}:"
-                f"{variant_id}:"
-                f"{product_id}"
-            )
+            callback_data=f"product:{category_id}:{brand_id}:{variant_id}:{product_id}"
         )
 
     keyboard.button(
         text="Назад",
         callback_data=f"brand:{category_id}:{brand_id}"
     )
-
     keyboard.adjust(1)
 
     await callback.message.edit_text(
-        f"{variant['name']}\n\n"
-        "Выбери вкус:",
+        f"{variant['name']}\n\nВыбери вкус:",
         reply_markup=keyboard.as_markup()
     )
-
     await callback.answer()
 
 
@@ -830,52 +683,25 @@ async def variant_selected(
 # ПОЛУЧЕНИЕ ТОВАРА
 # =========================================================
 
-def get_product(
-    category_id,
-    product_id,
-    brand_id=None,
-    variant_id=None
-):
-
+def get_product(category_id, product_id, brand_id=None, variant_id=None):
     category = categories.get(category_id)
-
     if not category:
         return None
 
     if brand_id:
-
-        brand = category.get(
-            "brands",
-            {}
-        ).get(brand_id)
-
+        brand = category.get("brands", {}).get(brand_id)
         if not brand:
             return None
 
         if variant_id:
-
-            variant = brand.get(
-                "variants",
-                {}
-            ).get(variant_id)
-
+            variant = brand.get("variants", {}).get(variant_id)
             if not variant:
                 return None
+            return variant.get("products", {}).get(product_id)
 
-            return variant.get(
-                "products",
-                {}
-            ).get(product_id)
+        return brand.get("products", {}).get(product_id)
 
-        return brand.get(
-            "products",
-            {}
-        ).get(product_id)
-
-    return category.get(
-        "products",
-        {}
-    ).get(product_id)
+    return category.get("products", {}).get(product_id)
 
 
 # =========================================================
@@ -883,109 +709,45 @@ def get_product(
 # =========================================================
 
 @router.callback_query(F.data.startswith("product:"))
-async def product_selected(
-    callback: CallbackQuery
-):
-
+async def product_selected(callback: CallbackQuery):
     parts = callback.data.split(":")
 
     # Новая структура: product:category:brand:variant:product
     if len(parts) == 5:
-
         _, category_id, brand_id, variant_id, product_id = parts
-
     # Старая структура: product:category:brand:product
     elif len(parts) == 4:
-
         _, category_id, brand_id, product_id = parts
         variant_id = None
-
     # Старая структура без бренда
     else:
-
         _, category_id, product_id = parts
         brand_id = None
         variant_id = None
 
-    product = get_product(
-        category_id,
-        product_id,
-        brand_id,
-        variant_id
-    )
+    product = get_product(category_id, product_id, brand_id, variant_id)
 
     if not product:
-
-        await callback.answer(
-            "Товар не найден",
-            show_alert=True
-        )
-
+        await callback.answer("Товар не найден", show_alert=True)
         return
 
     keyboard = InlineKeyboardBuilder()
 
     if brand_id and variant_id:
-
-        select_callback = (
-            f"select:"
-            f"{category_id}:"
-            f"{brand_id}:"
-            f"{variant_id}:"
-            f"{product_id}"
-        )
-
-        back_callback = (
-            f"variant:"
-            f"{category_id}:"
-            f"{brand_id}:"
-            f"{variant_id}"
-        )
-
+        select_callback = f"select:{category_id}:{brand_id}:{variant_id}:{product_id}"
+        back_callback = f"variant:{category_id}:{brand_id}:{variant_id}"
     elif brand_id:
-
-        select_callback = (
-            f"select:"
-            f"{category_id}:"
-            f"{brand_id}:"
-            f"{product_id}"
-        )
-
-        back_callback = (
-            f"brand:"
-            f"{category_id}:"
-            f"{brand_id}"
-        )
-
+        select_callback = f"select:{category_id}:{brand_id}:{product_id}"
+        back_callback = f"brand:{category_id}:{brand_id}"
     else:
+        select_callback = f"select:{category_id}:{product_id}"
+        back_callback = f"category:{category_id}"
 
-        select_callback = (
-            f"select:"
-            f"{category_id}:"
-            f"{product_id}"
-        )
-
-        back_callback = (
-            f"category:"
-            f"{category_id}"
-        )
-
-    keyboard.button(
-        text="Выбрать",
-        callback_data=select_callback
-    )
-
-    keyboard.button(
-        text="Назад",
-        callback_data=back_callback
-    )
-
+    keyboard.button(text="Выбрать", callback_data=select_callback)
+    keyboard.button(text="Назад", callback_data=back_callback)
     keyboard.adjust(1)
 
-    description = product.get(
-        "description",
-        ""
-    )
+    description = product.get("description", "")
 
     await callback.message.edit_text(
         f"{product['name']}\n\n"
@@ -993,7 +755,6 @@ async def product_selected(
         f"{description}",
         reply_markup=keyboard.as_markup()
     )
-
     await callback.answer()
 
 
@@ -1002,45 +763,23 @@ async def product_selected(
 # =========================================================
 
 @router.callback_query(F.data.startswith("select:"))
-async def select_product(
-    callback: CallbackQuery,
-    state: FSMContext
-):
-
+async def select_product(callback: CallbackQuery, state: FSMContext):
     parts = callback.data.split(":")
 
-    # Новая структура: select:category:brand:variant:product
     if len(parts) == 5:
-
         _, category_id, brand_id, variant_id, product_id = parts
-
-    # Старая структура: select:category:brand:product
     elif len(parts) == 4:
-
         _, category_id, brand_id, product_id = parts
         variant_id = None
-
-    # Старая структура без бренда
     else:
-
         _, category_id, product_id = parts
         brand_id = None
         variant_id = None
 
-    product = get_product(
-        category_id,
-        product_id,
-        brand_id,
-        variant_id
-    )
+    product = get_product(category_id, product_id, brand_id, variant_id)
 
     if not product:
-
-        await callback.answer(
-            "Товар не найден",
-            show_alert=True
-        )
-
+        await callback.answer("Товар не найден", show_alert=True)
         return
 
     await state.update_data(
@@ -1049,25 +788,14 @@ async def select_product(
         variant_id=variant_id,
         product_id=product_id
     )
-
-    await state.set_state(
-        OrderState.choosing_time
-    )
+    await state.set_state(OrderState.choosing_time)
 
     keyboard = InlineKeyboardBuilder()
 
     for time in times:
+        keyboard.button(text=time, callback_data=f"time:{time}")
 
-        keyboard.button(
-            text=time,
-            callback_data=f"time:{time}"
-        )
-
-    keyboard.button(
-        text="Отмена",
-        callback_data="cancel"
-    )
-
+    keyboard.button(text="Отмена", callback_data="cancel")
     keyboard.adjust(2)
 
     await callback.message.edit_text(
@@ -1076,7 +804,6 @@ async def select_product(
         "Выбери время:",
         reply_markup=keyboard.as_markup()
     )
-
     await callback.answer()
 
 
@@ -1084,53 +811,22 @@ async def select_product(
 # ВЫБОР ВРЕМЕНИ
 # =========================================================
 
-@router.callback_query(
-    OrderState.choosing_time,
-    F.data.startswith("time:")
-)
-async def choose_time(
-    callback: CallbackQuery,
-    state: FSMContext
-):
-
-    time = callback.data.split(
-        ":",
-        1
-    )[1]
-
-    await state.update_data(
-        time=time
-    )
-
-    await state.set_state(
-        OrderState.choosing_delivery
-    )
+@router.callback_query(OrderState.choosing_time, F.data.startswith("time:"))
+async def choose_time(callback: CallbackQuery, state: FSMContext):
+    time = callback.data.split(":", 1)[1]
+    await state.update_data(time=time)
+    await state.set_state(OrderState.choosing_delivery)
 
     keyboard = InlineKeyboardBuilder()
-
-    keyboard.button(
-        text="Самовывоз",
-        callback_data="pickup"
-    )
-
-    keyboard.button(
-        text="Доставка (+3Р)",
-        callback_data="delivery"
-    )
-
-    keyboard.button(
-        text="Отмена",
-        callback_data="cancel"
-    )
-
+    keyboard.button(text="Самовывоз", callback_data="pickup")
+    keyboard.button(text="Доставка (+3Р)", callback_data="delivery")
+    keyboard.button(text="Отмена", callback_data="cancel")
     keyboard.adjust(1)
 
     await callback.message.edit_text(
-        f"Время: {time}\n\n"
-        "Выбери способ получения:",
+        f"Время: {time}\n\nВыбери способ получения:",
         reply_markup=keyboard.as_markup()
     )
-
     await callback.answer()
 
 
@@ -1138,36 +834,20 @@ async def choose_time(
 # САМОВЫВОЗ
 # =========================================================
 
-@router.callback_query(
-    OrderState.choosing_delivery,
-    F.data == "pickup"
-)
-async def pickup_selected(
-    callback: CallbackQuery,
-    state: FSMContext
-):
-
+@router.callback_query(OrderState.choosing_delivery, F.data == "pickup")
+async def pickup_selected(callback: CallbackQuery, state: FSMContext):
     keyboard = InlineKeyboardBuilder()
 
     for index, place in enumerate(pickup_places):
+        keyboard.button(text=place, callback_data=f"pickup_place:{index}")
 
-        keyboard.button(
-            text=place,
-            callback_data=f"pickup_place:{index}"
-        )
-
-    keyboard.button(
-        text="Отмена",
-        callback_data="cancel"
-    )
-
+    keyboard.button(text="Отмена", callback_data="cancel")
     keyboard.adjust(1)
 
     await callback.message.edit_text(
         "Выбери место самовывоза:",
         reply_markup=keyboard.as_markup()
     )
-
     await callback.answer()
 
 
@@ -1176,7 +856,6 @@ async def pickup_selected(
 # =========================================================
 
 def get_product_from_state(data):
-
     return get_product(
         data["category_id"],
         data["product_id"],
@@ -1189,37 +868,16 @@ def get_product_from_state(data):
 # ВЫБОР ТОЧКИ
 # =========================================================
 
-@router.callback_query(
-    OrderState.choosing_delivery,
-    F.data.startswith("pickup_place:")
-)
-async def pickup_place_selected(
-    callback: CallbackQuery,
-    state: FSMContext
-):
-
+@router.callback_query(OrderState.choosing_delivery, F.data.startswith("pickup_place:"))
+async def pickup_place_selected(callback: CallbackQuery, state: FSMContext):
     try:
-
-        index = int(
-            callback.data.split(":")[1]
-        )
-
+        index = int(callback.data.split(":")[1])
     except (ValueError, IndexError):
-
-        await callback.answer(
-            "Ошибка выбора места",
-            show_alert=True
-        )
-
+        await callback.answer("Ошибка выбора места", show_alert=True)
         return
 
     if index >= len(pickup_places):
-
-        await callback.answer(
-            "Место не найдено",
-            show_alert=True
-        )
-
+        await callback.answer("Место не найдено", show_alert=True)
         return
 
     place = pickup_places[index]
@@ -1231,32 +889,17 @@ async def pickup_place_selected(
     )
 
     data = await state.get_data()
-
     product = get_product_from_state(data)
 
     if not product:
-
-        await callback.answer(
-            "Товар не найден",
-            show_alert=True
-        )
-
+        await callback.answer("Товар не найден", show_alert=True)
         return
 
     total_price = product["price"]
 
     keyboard = InlineKeyboardBuilder()
-
-    keyboard.button(
-        text="Подтвердить",
-        callback_data="confirm_order"
-    )
-
-    keyboard.button(
-        text="Отмена",
-        callback_data="cancel"
-    )
-
+    keyboard.button(text="Подтвердить", callback_data="confirm_order")
+    keyboard.button(text="Отмена", callback_data="cancel")
     keyboard.adjust(2)
 
     await callback.message.edit_text(
@@ -1268,7 +911,6 @@ async def pickup_place_selected(
         "Всё верно?",
         reply_markup=keyboard.as_markup()
     )
-
     await callback.answer()
 
 
@@ -1276,23 +918,10 @@ async def pickup_place_selected(
 # ДОСТАВКА
 # =========================================================
 
-@router.callback_query(
-    OrderState.choosing_delivery,
-    F.data == "delivery"
-)
-async def delivery_selected(
-    callback: CallbackQuery,
-    state: FSMContext
-):
-
-    await state.update_data(
-        delivery=True,
-        delivery_price=3
-    )
-
-    await state.set_state(
-        OrderState.entering_address
-    )
+@router.callback_query(OrderState.choosing_delivery, F.data == "delivery")
+async def delivery_selected(callback: CallbackQuery, state: FSMContext):
+    await state.update_data(delivery=True, delivery_price=3)
+    await state.set_state(OrderState.entering_address)
 
     await callback.message.edit_text(
         "🚚 Доставка\n\n"
@@ -1300,7 +929,6 @@ async def delivery_selected(
         "Например:\n"
         "ул. Ленина, 10, кв. 25"
     )
-
     await callback.answer()
 
 
@@ -1308,70 +936,32 @@ async def delivery_selected(
 # АДРЕС
 # =========================================================
 
-@router.message(
-    OrderState.entering_address
-)
-async def address_received(
-    message: Message,
-    state: FSMContext
-):
-
+@router.message(OrderState.entering_address)
+async def address_received(message: Message, state: FSMContext):
     if not message.text:
-
-        await message.answer(
-            "Пожалуйста, отправь адрес текстом."
-        )
-
+        await message.answer("Пожалуйста, отправь адрес текстом.")
         return
 
     address = message.text.strip()
-
     if not address:
-
-        await message.answer(
-            "Адрес не может быть пустым."
-        )
-
+        await message.answer("Адрес не может быть пустым.")
         return
 
-    await state.update_data(
-        address=address
-    )
+    await state.update_data(address=address)
 
     data = await state.get_data()
-
     product = get_product_from_state(data)
 
     if not product:
-
-        await message.answer(
-            "Ошибка: товар не найден."
-        )
-
+        await message.answer("Ошибка: товар не найден.")
         return
 
-    delivery_price = data.get(
-        "delivery_price",
-        3
-    )
-
-    total_price = (
-        product["price"]
-        + delivery_price
-    )
+    delivery_price = data.get("delivery_price", 3)
+    total_price = product["price"] + delivery_price
 
     keyboard = InlineKeyboardBuilder()
-
-    keyboard.button(
-        text="Подтвердить",
-        callback_data="confirm_order"
-    )
-
-    keyboard.button(
-        text="Отмена",
-        callback_data="cancel"
-    )
-
+    keyboard.button(text="Подтвердить", callback_data="confirm_order")
+    keyboard.button(text="Отмена", callback_data="cancel")
     keyboard.adjust(2)
 
     await message.answer(
@@ -1391,58 +981,24 @@ async def address_received(
 # ПОДТВЕРЖДЕНИЕ ЗАКАЗА
 # =========================================================
 
-@router.callback_query(
-    F.data == "confirm_order"
-)
-async def confirm_order(
-    callback: CallbackQuery,
-    state: FSMContext
-):
-
+@router.callback_query(F.data == "confirm_order")
+async def confirm_order(callback: CallbackQuery, state: FSMContext):
     data = await state.get_data()
-
     if not data:
-
-        await callback.answer(
-            "Заказ не найден.",
-            show_alert=True
-        )
-
+        await callback.answer("Заказ не найден.", show_alert=True)
         return
 
     product = get_product_from_state(data)
-
     if not product:
-
-        await callback.answer(
-            "Товар не найден.",
-            show_alert=True
-        )
-
+        await callback.answer("Товар не найден.", show_alert=True)
         return
 
-    delivery_price = data.get(
-        "delivery_price",
-        0
-    )
-
-    total_price = (
-        product["price"]
-        + delivery_price
-    )
-
-    address = data.get(
-        "address",
-        "Не указан"
-    )
+    delivery_price = data.get("delivery_price", 0)
+    total_price = product["price"] + delivery_price
+    address = data.get("address", "Не указан")
 
     user = callback.from_user
-
-    username = (
-        f"@{user.username}"
-        if user.username
-        else "нет username"
-    )
+    username = f"@{user.username}" if user.username else "нет username"
 
     admin_message = (
         "🛍 НОВЫЙ ЗАКАЗ\n\n"
@@ -1458,11 +1014,7 @@ async def confirm_order(
     )
 
     chat_keyboard = InlineKeyboardBuilder()
-
-    chat_keyboard.button(
-        text="💬 Написать покупателю",
-        callback_data=f"chat:{user.id}"
-    )
+    chat_keyboard.button(text="💬 Написать покупателю", callback_data=f"chat:{user.id}")
 
     await bot.send_message(
         ADMIN_ID,
@@ -1471,7 +1023,6 @@ async def confirm_order(
     )
 
     await state.clear()
-
     await callback.message.edit_text(
         "✅ Заказ принят!\n\n"
         f"📦 Товар: {product['name']}\n"
@@ -1480,7 +1031,6 @@ async def confirm_order(
         f"📍 {address}\n\n"
         "Информация отправлена администратору."
     )
-
     await callback.answer()
 
 
@@ -1488,48 +1038,22 @@ async def confirm_order(
 # АДМИН — ОТКРЫТЬ ЧАТ
 # =========================================================
 
-@router.callback_query(
-    F.data.startswith("chat:")
-)
-async def start_admin_chat(
-    callback: CallbackQuery
-):
-
+@router.callback_query(F.data.startswith("chat:"))
+async def start_admin_chat(callback: CallbackQuery):
     if callback.from_user.id != ADMIN_ID:
-
-        await callback.answer(
-            "Нет доступа",
-            show_alert=True
-        )
-
+        await callback.answer("Нет доступа", show_alert=True)
         return
 
     try:
-
-        user_id = int(
-            callback.data.split(
-                ":",
-                1
-            )[1]
-        )
-
+        user_id = int(callback.data.split(":", 1)[1])
     except (ValueError, IndexError):
-
-        await callback.answer(
-            "Ошибка ID пользователя",
-            show_alert=True
-        )
-
+        await callback.answer("Ошибка ID пользователя", show_alert=True)
         return
 
     active_chats[ADMIN_ID] = user_id
 
     keyboard = InlineKeyboardBuilder()
-
-    keyboard.button(
-        text="❌ Завершить диалог",
-        callback_data="chat_stop"
-    )
+    keyboard.button(text="❌ Завершить диалог", callback_data="chat_stop")
 
     await callback.message.answer(
         f"💬 Чат с покупателем {user_id} активирован.\n\n"
@@ -1538,85 +1062,43 @@ async def start_admin_chat(
         "Когда закончишь, нажми «❌ Завершить диалог».",
         reply_markup=keyboard.as_markup()
     )
-
-    await callback.answer(
-        "Чат открыт"
-    )
+    await callback.answer("Чат открыт")
 
 
 # =========================================================
 # ЗАКРЫТЬ ЧАТ
 # =========================================================
 
-@router.callback_query(
-    F.data == "chat_stop"
-)
-async def stop_admin_chat(
-    callback: CallbackQuery
-):
-
+@router.callback_query(F.data == "chat_stop")
+async def stop_admin_chat(callback: CallbackQuery):
     if callback.from_user.id != ADMIN_ID:
-
-        await callback.answer(
-            "Нет доступа",
-            show_alert=True
-        )
-
+        await callback.answer("Нет доступа", show_alert=True)
         return
 
-    active_chats.pop(
-        ADMIN_ID,
-        None
-    )
-
-    await callback.message.edit_text(
-        "❌ Диалог завершён."
-    )
-
-    await callback.answer(
-        "Чат завершён"
-    )
+    active_chats.pop(ADMIN_ID, None)
+    await callback.message.edit_text("❌ Диалог завершён.")
+    await callback.answer("Чат завершён")
 
 
 # =========================================================
 # АДМИН → ПОКУПАТЕЛЬ
 # =========================================================
 
-@router.message(
-    F.from_user.id == ADMIN_ID,
-    F.text
-)
-async def admin_message_to_customer(
-    message: Message
-):
-
-    user_id = active_chats.get(
-        ADMIN_ID
-    )
-
+@router.message(F.from_user.id == ADMIN_ID, F.text)
+async def admin_message_to_customer(message: Message):
+    user_id = active_chats.get(ADMIN_ID)
     if not user_id:
-
         return
 
     try:
-
         await bot.send_message(
             user_id,
             "💬 Сообщение от администратора:\n\n"
             f"{message.text}"
         )
-
-        await message.answer(
-            "✅ Сообщение отправлено."
-        )
-
+        await message.answer("✅ Сообщение отправлено.")
     except Exception as error:
-
-        print(
-            "Ошибка отправки покупателю:",
-            error
-        )
-
+        print("Ошибка отправки покупателю:", error)
         await message.answer(
             "❌ Не удалось отправить сообщение.\n"
             "Возможно, покупатель заблокировал бота."
@@ -1627,29 +1109,14 @@ async def admin_message_to_customer(
 # ПОКУПАТЕЛЬ → АДМИН
 # =========================================================
 
-@router.message(
-    F.from_user.id != ADMIN_ID,
-    F.text
-)
-async def customer_message_to_admin(
-    message: Message
-):
-
-    user_id = active_chats.get(
-        ADMIN_ID
-    )
-
+@router.message(F.from_user.id != ADMIN_ID, F.text)
+async def customer_message_to_admin(message: Message):
+    user_id = active_chats.get(ADMIN_ID)
     if user_id != message.from_user.id:
-
         return
 
     user = message.from_user
-
-    username = (
-        f"@{user.username}"
-        if user.username
-        else "нет username"
-    )
+    username = f"@{user.username}" if user.username else "нет username"
 
     await bot.send_message(
         ADMIN_ID,
@@ -1665,22 +1132,13 @@ async def customer_message_to_admin(
 # ОТМЕНА
 # =========================================================
 
-@router.callback_query(
-    F.data == "cancel"
-)
-async def cancel_order(
-    callback: CallbackQuery,
-    state: FSMContext
-):
-
+@router.callback_query(F.data == "cancel")
+async def cancel_order(callback: CallbackQuery, state: FSMContext):
     await state.clear()
-
     await callback.message.edit_text(
-        "❌ Заказ отменён.\n\n"
-        "Можешь начать заново.",
+        "❌ Заказ отменён.\n\nМожешь начать заново.",
         reply_markup=main_keyboard()
     )
-
     await callback.answer()
 
 
@@ -1688,22 +1146,13 @@ async def cancel_order(
 # ГЛАВНОЕ МЕНЮ
 # =========================================================
 
-@router.callback_query(
-    F.data == "home"
-)
-async def home(
-    callback: CallbackQuery,
-    state: FSMContext
-):
-
+@router.callback_query(F.data == "home")
+async def home(callback: CallbackQuery, state: FSMContext):
     await state.clear()
-
     await callback.message.edit_text(
-        "🏠 Главное меню\n\n"
-        "Выбери действие:",
+        "🏠 Главное меню\n\nВыбери действие:",
         reply_markup=main_keyboard()
     )
-
     await callback.answer()
 
 
@@ -1712,16 +1161,10 @@ async def home(
 # =========================================================
 
 async def main():
-
     print("🚀 Бот запущен!")
-
     dp = Dispatcher()
-
     dp.include_router(router)
-
-    await dp.start_polling(
-        bot
-    )
+    await dp.start_polling(bot)
 
 
 # =========================================================
@@ -1729,15 +1172,7 @@ async def main():
 # =========================================================
 
 if __name__ == "__main__":
-
     try:
-
-        asyncio.run(
-            main()
-        )
-
+        asyncio.run(main())
     except KeyboardInterrupt:
-
-        print(
-            "🛑 Бот остановлен."
-        )
+        print("🛑 Бот остановлен.")
