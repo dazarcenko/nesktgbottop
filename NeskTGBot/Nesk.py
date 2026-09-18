@@ -89,7 +89,6 @@ categories = {
                         "name": "🧪 MALASIAN ARCADE",
 
                         "products": {
-                            },
                             "pma_2": {
                                 "name": "PODONKI MALASIAN ARCADE 50мг — Вишневый энергетик",
                                 "price": 9.5,
