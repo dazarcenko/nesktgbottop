@@ -403,7 +403,7 @@ categories = {
 
                     "xros_corex_3": {
                         "name": "Xros Corex 3.0, 0.4 ОМ",
-                        "price": 15,
+                        "price": 12,
                         "description": ""
                     }
                 }
